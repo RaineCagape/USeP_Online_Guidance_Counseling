@@ -1,0 +1,26 @@
+body{
+
+	color: white;
+
+}
+
+.page-header{
+
+	margin-top: 5px;color: white;
+	padding: 55px 60px;
+	background-color: #36bef9;
+}
+
+h3{
+	font-size: 45px;
+	color: white;
+	font-family: Franklin Gothic Book;
+	
+}
+
+h1{
+
+	font-size: 160px;
+	font-family: Tekton Pro;
+	
+}
