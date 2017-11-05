@@ -6,21 +6,32 @@ body{
 
 .page-header{
 
-	margin-top: 5px;color: white;
+	margin-top: 0px;
+	color: white;
 	padding: 55px 60px;
 	background-color: #36bef9;
+	height: 140px;
+	width: 1366px;
 }
 
-h3{
-	font-size: 45px;
+h6{
+	font-size: 25px;
 	color: white;
-	font-family: Franklin Gothic Book;
+	font-family: Franklinthic Book;
+	position: absolute;
+	top: -5px;
+	left: 10px;
+
 	
 }
 
-h1{
+h3{
 
-	font-size: 160px;
+	font-size: 100px;
 	font-family: Tekton Pro;
+	top: 3px;
+	left: 10px;
+	position: absolute;
+
 	
 }
