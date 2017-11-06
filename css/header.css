@@ -1,12 +1,11 @@
 body{
-
 	color: black;
 
 }
 
 .page-header{
-
 	margin-top: 0px;
+	margin-bottom: 0px;
 	color: white;
 	padding: 55px 60px;
 	background-color: #36bef9;
@@ -32,14 +31,37 @@ h3{
 	left: 5px;
 	position: absolute;
 }
+
+.col-xs-2{
+
+	margin: 0 5px 0 0;
+	height: 590px;
+	background-color: #D0D0D0;
+	border-color: black; 
+	border-style: solid;
+}
+
+.col-md-6{
+	margin: 0px 3px 0 5px;
+	height: 590px;
+	border-color: black; 
+	border-style: solid;
+}
+
+.col-md-3{
+	margin: 0px 5px;
+	height: 590px;
+	padding: 20px 10px;
+	border-color: black; 
+	border-style: solid;
+}
+
 .form-group{
-	float: right;
-	margin-right: 20px;
 	border-style: dotted;
 	border-color: black;
-	width: 350px;
+	width: 310px;
 	height: 300px;
-	padding: 20px 70px;
+	padding: 20px 50px;
 }
 .button{
 	float: right;
