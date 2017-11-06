@@ -74,3 +74,22 @@ body{
 	margin-left: 140px;
 
 }
+.line{
+	display: block;
+	background-color: #999999;
+	margin-top: 10px;
+	height: 10px;
+	width: 200px;
+}
+
+.upper{
+	margin-left: 30px;
+	font-size: 20px;
+	font-family: Arial;
+}
+.lower{	
+	margin-left: 10px;
+	margin-top: 330px;
+	font-size: 20px;
+	font-family: Arial;
+}
