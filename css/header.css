@@ -6,31 +6,11 @@ body{
 .page-header{
 	margin-top: 0px;
 	margin-bottom: 0px;
-	color: white;
-	padding: 55px 60px;
-	background-color: #36bef9;
+	padding: 0px 0px;
 	height: 140px;
 	width: 1366px;
 }
 
-h6{
-	font-size: 25px;
-	color: white;
-	font-family: : Century Gothic;
-	position: absolute;
-	top: -5px;
-	left: 10px;
-
-	
-}
-
-h3{
-	font-size: 100px;
-	font-family: Century Gothic;
-	top: 3px;
-	left: 5px;
-	position: absolute;
-}
 
 .col-xs-2{
 
