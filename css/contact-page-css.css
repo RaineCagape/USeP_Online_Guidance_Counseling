@@ -1,0 +1,41 @@
+body{
+	color: black;
+	overflow-y: scroll;
+
+}
+
+.header{
+	font-family: Arial Black;
+	padding: 20px;
+	margin: 20px;
+	top: 150px;
+	left: 250px;
+	position: absolute; 
+}
+
+.info{
+	font-family: Times New Roman;
+	padding: 20px;
+	margin: 20px;
+	top: 230px;
+	left: 290px;
+	position: absolute; 
+}
+
+.add{
+	font-family: arial;
+	padding: 20px;
+	margin: 20px;
+	top: 280px;
+	left: 290px;
+	position: absolute; 
+}
+
+.num{
+	font-family: Lucida Console;
+	padding: 20px;
+	margin: 20px;
+	top: 350px;
+	left: 290px;
+	position: absolute; 
+}
