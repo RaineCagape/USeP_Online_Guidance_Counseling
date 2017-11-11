@@ -1,0 +1,54 @@
+body{
+	color: black;
+	overflow-y: scroll;
+
+}
+
+.title{
+	font-family: Impact;
+	padding: 10px;
+	margin: 10px;
+	position: absolute;
+	left: 250px;
+
+}
+
+
+.points{
+	font-family: Arial;
+	padding: 10px;
+	margin: 10px;
+	position: absolute;
+	left: 300px;
+	top: 200px;
+
+}
+
+.points2{
+	font-family: Arial;
+	padding: 10px;
+	margin: 10px;
+	position: absolute;
+	left: 300px;
+	top: 400px;
+}
+
+.paragraphs{
+	font-family: arial;
+	padding: 10px;
+	margin: 10px;
+	position: absolute;
+	left: 300px;
+	top: 230px;
+
+}
+
+.paragraphs2{
+	font-family: arial;
+	padding: 10px;
+	margin: 10px;
+	position: absolute;
+	left: 300px;
+	top: 430px;
+
+}
