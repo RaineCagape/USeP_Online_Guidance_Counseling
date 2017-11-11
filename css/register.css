@@ -1,0 +1,15 @@
+.contain{
+	width: 1090px;
+	height: 900px;
+	padding: 20px 30px;
+}
+
+.registergreet{
+	font-family: Arial;
+	font-size: 300px;
+	position: absolute;
+	padding: 20px;
+	margin: 20px;
+	left: 220px
+
+}

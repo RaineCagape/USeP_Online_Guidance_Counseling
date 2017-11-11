@@ -1,7 +1,8 @@
-body{
-	color: black;
-	overflow-y: scroll;
 
+
+.container {
+  position: absolute;
+  width: 50%;
 }
 
 .title{
@@ -30,7 +31,7 @@ body{
 	margin: 10px;
 	position: absolute;
 	left: 300px;
-	top: 400px;
+	top: 430px;
 }
 
 .paragraphs{
@@ -39,7 +40,8 @@ body{
 	margin: 10px;
 	position: absolute;
 	left: 300px;
-	top: 230px;
+	top: 240px;
+	margin-right: 100px;
 
 }
 
@@ -49,6 +51,7 @@ body{
 	margin: 10px;
 	position: absolute;
 	left: 300px;
-	top: 430px;
+	top: 470px;
+	margin-right: 100px;
 
 }

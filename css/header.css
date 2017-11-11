@@ -4,6 +4,11 @@ body{
 
 }
 
+.containermain {
+  position: absolute;
+  width: 50%;
+}
+
 .page-header{
 	margin-top: 0px;
 	margin-bottom: 0px;
