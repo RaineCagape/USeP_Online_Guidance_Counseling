@@ -1,16 +1,21 @@
 
+.ugtocontain{
+	margin: 10px;
+	width: 1000px;
+	height: 700px;
+	left: 250px;
+	position: relative;
+}
 
-.container {
-  position: absolute;
-  width: 50%;
+.containparagraph{
+   left: 250px;	
 }
 
 .title{
 	font-family: Impact;
-	padding: 10px;
 	margin: 10px;
 	position: absolute;
-	left: 250px;
+	left: 50px;
 
 }
 
@@ -20,8 +25,8 @@
 	padding: 10px;
 	margin: 10px;
 	position: absolute;
-	left: 300px;
-	top: 200px;
+	left: 50px;
+	top: 70px;
 
 }
 
@@ -29,9 +34,10 @@
 	font-family: Arial;
 	padding: 10px;
 	margin: 10px;
+	position: relative;
+	left: 50px;
+	top: 330px;
 	position: absolute;
-	left: 300px;
-	top: 430px;
 }
 
 .paragraphs{
@@ -39,8 +45,10 @@
 	padding: 10px;
 	margin: 10px;
 	position: absolute;
-	left: 300px;
-	top: 240px;
+	width: 1000px;
+	height: 200px;
+	left: 50px;
+	top: 110px;
 	margin-right: 100px;
 
 }
@@ -50,8 +58,10 @@
 	padding: 10px;
 	margin: 10px;
 	position: absolute;
-	left: 300px;
-	top: 470px;
+	width: 1000px;
+	height: 100px;
+	left: 50px;
+	top: 370px;
 	margin-right: 100px;
 
 }
