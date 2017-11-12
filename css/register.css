@@ -6,10 +6,10 @@ body{
     margin: auto;
 }
 
-
 .contain{
+    position: fixed;
 	width: 1090px;
-	height: 900px;
+	height: 700px;
 	padding: 20px 30px;
     overflow-y: hidden;
 }
@@ -17,10 +17,10 @@ body{
 .registergreet{
 	font-family: Century Gothic;
 	font-size: 50px;
-	position: absolute;
+	position: fixed;
 	padding: 20px;
-	margin: 20px;
-	left: 240px
+	margin: 130px;
+	left: 150px
 
 }
 
@@ -29,8 +29,8 @@ body{
     font-size: 25px;
     position: absolute;
     padding: 20px;
-    margin: 20px;
-    top: 210px;
+    margin: 10px;
+    top: 205px;
     left: 340px;
 
 }

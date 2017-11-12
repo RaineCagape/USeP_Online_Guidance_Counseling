@@ -4,15 +4,19 @@ body{
 	font-size: 18px;
 }
 
+
 .panel-body{
+
+	position: fixed;
 	border-style: dotted;
 	border-color: black;
 	width: 290px;
-	height: 300px;
+	height: 285px;
 	padding: 20px 18px;
 }
 
 .list{
+	position: fixed;
 	color: #333333;
 	line-height: 38px;
 	margin-top: 10px;
@@ -26,16 +30,24 @@ body{
 
 .btn{
 
+	position: fixed;
 	background-color: #36BFE9;
 	color:white;
+	width: 253px;
+	height: 40px;
 	font-size: 20px;
 	padding: 5px 90px;
 	text-align: center;
 	border-color: none;
 	border-radius: 7px;
-	bottom: 5px;
-	margin-left: 0px;
-	margin-top: 95px;
+	margin-top: 200px;
+	margin-left: -190px;
 	
+
+}
+
+.container1{
+
+	margin: 295px 0px 0px 0px;
 
 }
