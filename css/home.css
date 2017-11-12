@@ -23,7 +23,9 @@ body{
 	text-anchor: 5px;
 	margin-left: 10px;
 }
-
+.label{
+	position: fixed;
+}
 .a{
 	color: #333333;
 }
@@ -41,7 +43,7 @@ body{
 	border-color: none;
 	border-radius: 7px;
 	margin-top: 200px;
-	margin-left: -190px;
+	margin-left: -185px;
 	
 
 }
