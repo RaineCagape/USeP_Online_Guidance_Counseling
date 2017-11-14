@@ -132,7 +132,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 			<div class="form-group">
 			<img src="images/usep.png" class="logo"><br>
-			<a href="register.html" style="color: blue; float: right; margin-top: 75px; margin-bottom: 5px;">Register</a>
+			<a href="register.php" style="color: blue; float: right; margin-top: 75px; margin-bottom: 5px;">Register</a>
 
 			<input type="text" name="username" placeholder="Username" style="width: 205px" data-toggle="popover" data-placement="left" data-content="<?php echo $username_err;?>" ><br><br>
 
