@@ -3,15 +3,16 @@
 require_once 'config.php';
 
 // Define variables and initialize with empty values
-$username= $password= $confirm_password= $fname= $lname= $address= $email="";
-$username_err = $password_err = $confirm_password_err = $fname_err= $lname_err= $address_err= $email_err="";
+$username= $password= $fname= $lname= $address= $email="";
+$username_err = $password_err = $fname_err= $lname_err= $address_err= $email_err="";
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Validate username
     if(empty(trim($_POST["username"]))){
-        $username_err = "Please enter a username.";      
+        $username_err = "Please enter a username.";  
+
     }
 
     else{
@@ -53,17 +54,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $password = trim($_POST['password']);
     }
-
-    // Validate confirm password
-    if(empty(trim($_POST["confirm_password"]))){
-        $confirm_password_err = 'Please confirm password.';
-    } else{
-        $confirm_password = trim($_POST['confirm_password']);
-        if($password != $confirm_password){
-            $confirm_password_err = 'Password did not match.';
-        }
-    }
-
     
     //other data inputs to store in the database
     if(empty(trim($_POST["fname"]))){
@@ -91,14 +81,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     // Check input errors before inserting in database
-    if(empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($fname_err) && empty($lname_err) && empty($address_err) && empty($email_err)){
+    if(empty($username_err) && empty($password_err) && empty($fname_err) && empty($lname_err) && empty($address_err) && empty($email_err)){
 
         // Prepare an insert statement
-        $sql = "INSERT INTO users (username, password, fname, lname, address, email) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO users (username, password, firstname, lastname, address, email) VALUES (?, ?, ?, ?, ?, ?)";
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password, $param_fname, $param_lname, $param_address, $param_email);
+            mysqli_stmt_bind_param($stmt, 'ssssss', $param_username, $param_password, $param_fname, $param_lname, $param_address, $param_email);
 
             // Set parameters
             $param_username = $username;
@@ -110,8 +100,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
+
+                session_start();
+
+                $_SESSION['username'] = $username;
+                $cookie_name = "user";
+                $cookie_value = $fname;
+
+                setcookie($cookie_name,$cookie_value);
                 // Redirect to login page
-                header("location: login.php");
+                header("location: index.php");
             } else{
                 echo "Something went wrong. Please try again later.";
             }
@@ -142,7 +140,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	<link rel="stylesheet" href="css/header.css">
 	<link rel="stylesheet" href="css/register.css">
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+   	   	$('[data-toggle="popover"]').popover('show');});
+    </script>
 
 </head>
 <body>
@@ -167,27 +173,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	<div class="contain">
 
 
-	 <form action="<?php echo htmlspecialchars ($_SERVER['PHP_SELF']); ?>" method="post">
+	 <form action="<?php echo htmlspecialchars ($_SERVER['PHP_SELF']); ?>" method="post" >
 
-		<div class="fname"><input type="text" name="fname" placeholder="First Name" data-toggle="popover" data-placement="left" data-content="<?php echo $fname_err;?>"  > </div>
+		<div class="fname"><input type="text" name="fname" value="<?php echo $fname; ?>" placeholder="First Name" data-toggle="popover" data-placement="left" data-content="<?php echo $fname_err;?>"  > </div>
 
-		<div class="lname"><input type="text" name="lname" placeholder="Last Name" data-toggle="popover" data-placement="left" data-content="<?php echo $lname_err;?>" ></div>
+		<div class="lname"><input type="text" name="lname" value="<?php echo $lname; ?>" placeholder="Last Name" data-toggle="popover" data-placement="left" data-content="<?php echo $lname_err;?>"  ></div>
 
-		<div class="add"><input type="text" name="address" placeholder="Address" data-toggle="popover" data-placement="left" data-content="<?php echo $address_err;?>"></div>
+		<div class="add"><input type="text" name="address" value="<?php echo $address; ?>" placeholder="Address" data-toggle="popover" data-placement="left" data-content="<?php echo $address_err;?>"  ></div>
 
-		<div class="username"><input type="text" name="username" placeholder="Username" data-toggle="popover" data-placement="left" data-content="<?php echo $username_err;?>" ></div>
+		<div class="username"><input type="text" name="username" value="<?php echo $username; ?>" placeholder="Username" data-toggle="popover" data-placement="left" data-content="<?php echo $username_err;?>"  ></div>
 
-		<div class="password"><input type="text" name="password" placeholder="Password" data-toggle="popover" data-placement="left" data-content="<?php echo $password_err;?>" ></div>
+		<div class="password"><input type="text" name="password" value="<?php echo $password; ?>" placeholder="Password" data-toggle="popover" data-placement="left" data-content="<?php echo $password_err;?>"  ></div>
 
-		<div class="email"><input type="text" name="email" placeholder="E-mail"
-		data-toggle="popover" data-placement="left" data-content="<?php echo $email_err;?>" ></div>
+		<div class="email"><input type="text" name="email" value="<?php echo $email; ?>" placeholder="E-mail"
+		data-toggle="popover" data-placement="left" data-content="<?php echo $email_err;?>"  ></div>
 
 		<input type="submit" class="regbutt" value="Sign up">
 		<button type="button" class="cancelbutt">Cancel</button>
 
 
 		</form>
-		
+
 	</div>	
 	</div>
 	

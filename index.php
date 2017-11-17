@@ -5,6 +5,8 @@ session_start();
 // If session variable is not set it will redirect to login page
   if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   header("location: login.php");
+
+
   exit;
 }
 ?>
@@ -62,7 +64,7 @@ session_start();
 
 			<div class="panel-body">
 			
-			<label>Welcome back, <b> reyna<!--<?php echo $_SESSION['username']; ?>--></b> !</label>
+			<label>Welcome back, <b> <?php echo $_SESSION['username']; ?></b> !</label>
 
 			<div class="list">
  			<span class="glyphicon glyphicon-user"></span><a href="#" >  My Profile</a><br>

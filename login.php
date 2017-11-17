@@ -94,7 +94,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <script type="text/javascript">
         $(document).ready(function(){
-   	   	$('[data-toggle="popover"]').popover();});
+   	   	$('[data-toggle="popover"]').popover('show');});
     </script>
 
 </head>
@@ -134,9 +134,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			<img src="images/usep.png" class="logo"><br>
 			<a href="register.php" style="color: blue; float: right; margin-top: 75px; margin-bottom: 5px;">Register</a>
 
-			<input type="text" name="username" placeholder="Username" style="width: 205px" data-toggle="popover" data-placement="left" data-content="<?php echo $username_err;?>" ><br><br>
+			<input type="text" name="username" value="<?php echo $username; ?>" placeholder="Username" style="width: 205px" data-toggle="popover" data-placement="left" data-content="<?php echo $username_err;?>" ><br><br>
 
-			<input type="password"  name="password" placeholder="Password" style="width: 205px" data-toggle="popover" data-placement="left" data-content="<?php echo $password_err;?>" ><br> <br>
+			<input type="password"  name="password" value="<?php echo $password; ?>" placeholder="Password" style="width: 205px" data-toggle="popover" data-placement="left" data-content="<?php echo $password_err;?>" ><br> <br>
 		
 			<input type="submit" class="button" value="Log in">
 			
