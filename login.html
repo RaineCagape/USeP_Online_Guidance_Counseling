@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Log in</title>
+	<link rel="icon" href="images/usep.png">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				
+				<div class="header">
+					<img src="images/header.png" width="1350px">
+				</div>
+			</div>
+
+			<div class="col-sm-2">
+					<hr>
+					<hr>
+					<a href=""> HOME </a> <br>
+					<a href=""> Featured Articles </a><br>
+					<a href=""> All Articles </a><br>	
+					<br><br>
+					<br><br>
+					<br><br>
+					<br><br>
+					<br><br>
+					<br>
+					<a href=""> Help </a> <br>
+					<a href=""> About Us </a> <br>
+					<a href=""> Contact Page </a> <br>				
+			</div>
+
+			<div class="col-sm-6">
+					
+			</div>
+
+			<div class="col-sm-4">
+				<div class="form-group">
+
+					<img src="images/usep.png" class="logo"><br><br>
+					<a href="register.php" style="color: blue; float: right; margin-top: -25px; margin-right: 10px">Register</a>
+
+					<input type="text" name="username" placeholder="Username" style="width: 270px; background-color: #CCCCCC" data-toggle="popover" data-placement="left" data-content="<?php echo $username_err;?>" ><br><br>
+
+					<input type="password"  name="password" placeholder="Password" style="width: 270px; background-color: #CCCCCC" data-toggle="popover" data-placement="left" data-content="<?php echo $password_err;?>" ><br><br>
+
+					<input type="submit" class="button" value="Log in">
+				</div>	
+
+				<div class="chat">
+					<button type="button" class="chatbutt" >Chat Now</button>
+				</div>
+
+			</div>
+	</div>
+</body>
+</html>

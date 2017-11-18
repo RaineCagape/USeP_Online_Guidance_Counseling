@@ -1,0 +1,78 @@
+.container{
+	margin: 0 auto;
+}
+
+.col-md-12{
+	margin: 0 auto;
+	width: 100%;
+	/*min-width: 1000px;*/
+	left: -120px;
+}
+/*.header{
+	width: 100%;
+	margin: 0 auto;
+	right: -120px;
+	position: absolute;
+}*/
+
+.col-sm-2{
+	/*width: 230px;*/
+	background-color: #D0D0D0;
+	border-style: solid;
+	border-color: #CCCCCC;
+	font-size: 18px;
+	font-family: Century Gothic Regular;
+	padding-bottom: 43px;
+	left: -105px;
+}
+
+.col-sm-6{
+	border-style: dotted;
+	border-color: #CCCCCC;
+	
+}
+
+.col-sm-4{
+	right: -105px;
+/*	background-color: #D0D0D0;*/
+	border-style: solid;
+	border-color: white;	
+}
+
+.form-group{
+	border-style: dotted;
+	border-color: black;
+	width: 360px;
+	height: 285px;
+	padding: 10px 40px;
+}
+
+.logo{
+
+	margin-left: 100px;
+	width: 90px;
+	height: 90px;
+}
+
+.chat{
+	background-image: url("../images/need.png");
+	background-repeat: no-repeat;
+	background-size: 290px 250px;
+	border-style: dotted;
+	border-color: black;
+	width: 360px;
+	height: 250px;
+	padding: 10px 30px;
+
+}
+
+.chatbutt{
+	background-color: #36bfe9;
+	border-color: none;
+	border-radius: 7px;
+	height: 50px;
+	width: 100px;
+	bottom: 5px;
+	float: right;
+	margin-top: 160px;
+}
