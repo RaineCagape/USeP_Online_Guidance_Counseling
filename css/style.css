@@ -77,3 +77,25 @@
 	float: right;
 	margin-top: 160px;
 }
+
+.modal-dialog{
+	border-style: dotted;
+	border-color: #CCCCCC;
+}
+
+.loginBtn{
+	height: 40px;
+	width: 460px;
+	background-color: #36bfe9;
+	border-radius: 7px;
+	border-style: none;
+	font-size: 20px;
+}
+.registerBtn{
+	height: 40px;
+	width: 460px;
+	background-color: #999999;
+	border-radius: 7px;
+	border-style: none;
+	font-size: 20px;
+}
