@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Register</title>
+	<link rel="icon" href="images/usep.png">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/regStyle.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+   	   	$('[data-toggle="popover"]').popover('show');});
+    </script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="header">
+					<img src="images/header.png" width="1350px">
+				</div>				
+			</div>
+
+			<div class="col-sm-12">
+					<div class="registergreet">
+						Welcome to UGTO E-Counseling
+					</div>
+					<div class="greetsub">
+						We would like to be there for you. Register now.
+					</div>
+
+					<div class="regForm">
+						 <form action="<?php echo htmlspecialchars ($_SERVER['PHP_SELF']); ?>" method="post" >
+
+							<div class="fname"><input type="text" name="fname" style="width: 350px; background-color: #CCCCCC" value="<?php echo $fname; ?>" placeholder="First Name" data-toggle="popover" data-placement="left" data-content="<?php echo $fname_err;?>"> </div>
+
+							<div class="lname"><input type="text" name="lname" style="width: 350px; background-color: #CCCCCC" value="<?php echo $lname; ?>" placeholder="Last Name" data-toggle="popover" data-placement="left" data-content="<?php echo $lname_err;?>"  ></div>
+
+							<div class="add"><input type="text" name="address" style="width: 350px; background-color: #CCCCCC" value="<?php echo $address; ?>" placeholder="Address" data-toggle="popover" data-placement="left" data-content="<?php echo $address_err;?>"  ></div>
+
+							<div class="username"><input type="text" name="username" style="width: 350px; background-color: #CCCCCC" value="<?php echo $username; ?>" placeholder="Username" data-toggle="popover" data-placement="left" data-content="<?php echo $username_err;?>"  ></div>
+
+							<div class="password"><input type="text" name="password" style="width: 350px; background-color: #CCCCCC" value="<?php echo $password; ?>" placeholder="Password" data-toggle="popover" data-placement="left" data-content="<?php echo $password_err;?>"  ></div>
+
+							<div class="email"><input type="text" name="email" style="width: 350px; background-color: #CCCCCC" value="<?php echo $email; ?>" placeholder="E-mail"
+							data-toggle="popover" data-placement="left" data-content="<?php echo $email_err;?>"  ></div>
+
+							<br><br>
+							<input type="button" class="cancelbutt" value="Cancel"/>
+							<input type="submit" class="regbutt" value="Sign up"/>
+
+							</form>
+					</div>				
+			</div>
+		</div>
+	</div>
+<!-- 	<div class="container">
+		<div class="row">
+
+
+			<div class="col-sm-12">
+					<div class="registergreet">
+						<p>Welcome to UGTO E-Counseling</p>
+					</div>
+
+	<div class="greetsub">
+		<p>We would like to be there for you. Register now.</p>
+	</div>
+
+	<div class="contain">
+
+
+	 <form action="<?php echo htmlspecialchars ($_SERVER['PHP_SELF']); ?>" method="post" >
+
+		<div class="fname"><input type="text" name="fname" value="<?php echo $fname; ?>" placeholder="First Name" data-toggle="popover" data-placement="left" data-content="<?php echo $fname_err;?>"  > </div>
+
+		<div class="lname"><input type="text" name="lname" value="<?php echo $lname; ?>" placeholder="Last Name" data-toggle="popover" data-placement="left" data-content="<?php echo $lname_err;?>"  ></div>
+
+		<div class="add"><input type="text" name="address" value="<?php echo $address; ?>" placeholder="Address" data-toggle="popover" data-placement="left" data-content="<?php echo $address_err;?>"  ></div>
+
+		<div class="username"><input type="text" name="username" value="<?php echo $username; ?>" placeholder="Username" data-toggle="popover" data-placement="left" data-content="<?php echo $username_err;?>"  ></div>
+
+		<div class="password"><input type="text" name="password" value="<?php echo $password; ?>" placeholder="Password" data-toggle="popover" data-placement="left" data-content="<?php echo $password_err;?>"  ></div>
+
+		<div class="email"><input type="text" name="email" value="<?php echo $email; ?>" placeholder="E-mail"
+		data-toggle="popover" data-placement="left" data-content="<?php echo $email_err;?>"  ></div>
+
+		<input type="submit" class="regbutt" value="Sign up">
+		<button type="button" class="cancelbutt">Cancel</button>
+
+
+		</form>
+		</div>
+	</div>	
+	</div>
+	</div>
+	</div> -->
+</body>
+</html>

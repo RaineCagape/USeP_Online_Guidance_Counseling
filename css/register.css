@@ -7,7 +7,7 @@ body{
     margin: auto;
 }
 
-.contain{
+.container{
     position: fixed;
 	width: 1090px;
 	height: 700px;

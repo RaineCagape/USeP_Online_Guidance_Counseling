@@ -1,0 +1,79 @@
+/*.container{
+	margin: 0 auto;
+}
+
+.col-md-12{
+	margin: 0 auto;
+	width: 100%;
+}*/
+
+.registergreet{
+	text-align: center;
+	font-family: Century Gothic;
+	font-size: 50px;
+	padding: 20px;
+	margin-top: 20px;
+}
+.greetsub{
+	text-align: center;
+    font-family: Century Gothic;
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+.fname{
+	margin-top: 20px;
+    margin-left: 80px;
+
+}
+
+.lname{
+	margin-top: 20px;
+	margin-left: 80px;
+}
+
+.add{
+	margin-top: 20px;
+	margin-left: 80px;
+}
+
+.username{
+    margin-top: -240px;
+    margin-left: 700px;
+}
+
+.password{
+	margin-top: 20px;
+    margin-left: 700px;
+}
+
+
+.email{
+    margin-top: 20px;
+    margin-left: 700px;
+}
+
+input[type=text], select {
+    width: 250px;
+    height: 50px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.regbutt{
+    width: 120px;
+    height: 40px;
+    float: right;
+    margin-right: 20px;
+}
+
+.cancelbutt{
+    width: 120px;
+    height: 40px;
+    float: right;
+
+}
