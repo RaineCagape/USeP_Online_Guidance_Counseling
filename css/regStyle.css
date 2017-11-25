@@ -23,34 +23,34 @@
 
 .fname{
 	margin-top: 20px;
-    margin-left: 80px;
+    margin-left: 200px;
 
 }
 
 .lname{
 	margin-top: 20px;
-	margin-left: 80px;
+	margin-left: 200px;
 }
 
 .add{
 	margin-top: 20px;
-	margin-left: 80px;
+	margin-left: 200px;
 }
 
 .username{
     margin-top: -240px;
-    margin-left: 700px;
+    margin-left: 800px;
 }
 
 .password{
 	margin-top: 20px;
-    margin-left: 700px;
+    margin-left: 800px;
 }
 
 
 .email{
     margin-top: 20px;
-    margin-left: 700px;
+    margin-left: 800px;
 }
 
 input[type=text], select {
