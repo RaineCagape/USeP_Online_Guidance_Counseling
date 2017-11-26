@@ -3,7 +3,7 @@
 require_once 'config.php';
 
 // Define variables and initialize with empty values
-$username = $password = $firstname  ="";
+$username = $password = $firstname  = $lastname = $address = $email="";
 $username_err = $password_err = "";
 
 // Processing form data when form is submitted
@@ -26,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT username,firstname,password FROM users WHERE username = ?";
+        $sql = "SELECT username,firstname,lastname,address,email,password FROM users WHERE username = ?";
 
         if($stmt = mysqli_prepare($link, $sql)){
 
@@ -44,7 +44,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Check if username exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $username, $firstname,$hashed_password);
+                    mysqli_stmt_bind_result($stmt, $username, $firstname,$lastname,$address,$email,$hashed_password);
                    
 				   if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
@@ -54,6 +54,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                             $_SESSION['username'] = $username;
                             $_SESSION['firstname'] = $firstname; 
+                            $_SESSION['lastname'] = $lastname;
+                            $_SESSION['address'] = $address;
+                            $_SESSION['email'] = $email;
+
                             header("location: index.php");
                         } 	else{
                             // Display an error message if password is not valid
@@ -82,78 +86,93 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Home</title>
+	<title>Log in</title>
 	<link rel="icon" href="images/usep.png">
-	
-	<!-- Latest compiled and minified CSS -->
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-		<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="css/style.css">
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <script type="text/javascript">
+	  <script type="text/javascript">
         $(document).ready(function(){
    	   	$('[data-toggle="popover"]').popover('show');});
     </script>
-
+    
 </head>
 <body>
-	
 	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				
+				<div class="header">
+					<img src="images/header.png" width="1360px">
+				</div>
+			</div>
 
-	<div class="page-header"> 
-		<img src="images/header.png">
+			<div class="col-sm-2">
+					<hr>
+					<hr>
+					<a href="index.php"> HOME </a> <br>
+					<a href=""> Featured Articles </a><br>
+					<a href=""> All Articles </a><br>	
+					<br><br>
+					<br><br>
+					<br><br>
+					<br><br>
+					<br><br>
+					<br>
+					<a href=""> Help </a> <br>
+					<a href="aboutUs.php"> About Us </a> <br>
+					<a href="contactPage.php"> Contact Page </a> <br>				
+			</div>
+
+			<div class="col-sm-7">
+					<!--contenttssss-->
+			</div>
+
+			<div class="col-sm-3">
+
+				<form action="<?php echo htmlspecialchars ($_SERVER['PHP_SELF']); ?>" method="post"> 
+
+				<div class="form-group">
+
+					<img src="images/usep.png" class="logo"><br>
+					<a href="register.php" style="color: blue; float: right; margin-top: 5px; margin-right: 10px">Register</a>
+
+					<input type="text" name="username" value="<?php echo $username; ?>" placeholder="Username" style="height: 35px; width: 270px; background-color: #CCCCCC" data-toggle="popover" data-placement="left" data-content="<?php echo $username_err;?>" ><br><br>
+
+					<input type="password"  name="password" value="<?php echo $password; ?>" placeholder="Password" style="height:35px;width: 270px; background-color: #CCCCCC" data-toggle="popover" data-placement="left" data-content="<?php echo $password_err;?>" ><br><br>
+
+					<input type="submit" class="button" value="Log in" style="float: right">
+				</div>	
+
+				</form>
+
+				<div class="chat">
+					<button type="button" class="chatbutt" data-toggle="modal" data-target="#alertModal">Chat Now</button>
+				</div>
+
+			</div>
+				 <div class="modal fade" id="alertModal" role="dialog">
+    				<div class="modal-dialog">
+    
+      					<div class="modal-content">
+        					<div class="modal-header">
+        						<h1 class="modal-title">LOG-IN FIRST!</h1>
+          						<button type="button" class="close" data-dismiss="modal">&times;</button>
+          					</div>
+        
+        					<div class="modal-body">
+          						You need to log-in in your account, or sign-up if you don't have one.<br><br><br><br><br>
+          						<button type="button" class="loginBtn" onclick="window.location.href='login.php'">Log-In</button><br><br>
+          						<button type="button" class="registerBtn" onclick="window.location.href='register.php'" >Register</button>
+          					</div>
+    				</div>
+  				</div>
 	</div>
-
-	<div class="col-xs-2">
-		<hr class="line">
-		<hr class="line">
-		<p class="upper">
-			<a href=""> HOME </a> <br>
-			<a href=""> Featured Articles </a> <br>
-			<a href=""> All Articles </a> <br>
-		</p>
-		<p class="lower">
-			<a href=""> Help </a> <br>
-			<a href=""> About Us </a> <br>
-			<a href=""> Contact Page </a> <br>
-		</p>
-	</div>
-
-	<div class="col-md-7">
-	
-		
-	</div>
-
-	<div class="col-md-2">
-
-		<form action="<?php echo htmlspecialchars ($_SERVER['PHP_SELF']); ?>" method="post">
-
-			<div class="form-group">
-			<img src="images/usep.png" class="logo"><br>
-			<a href="register.php" style="color: blue; float: right; margin-top: 75px; margin-bottom: 5px;">Register</a>
-
-			<input type="text" name="username" value="<?php echo $username; ?>" placeholder="Username" style="width: 205px" data-toggle="popover" data-placement="left" data-content="<?php echo $username_err;?>" ><br><br>
-
-			<input type="password"  name="password" value="<?php echo $password; ?>" placeholder="Password" style="width: 205px" data-toggle="popover" data-placement="left" data-content="<?php echo $password_err;?>" ><br> <br>
-		
-			<input type="submit" class="button" value="Log in">
-			
-		</form>
-
-		
-
-		<div class="container1">
-			<button type="button" class="chatbutt" >Chat Now</button>
-		</div>
-
-	
-
-	</div>
-	</div>
-
+</div>
+</div>
 </body>
 </html>

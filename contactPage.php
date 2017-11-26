@@ -1,3 +1,11 @@
+<?php
+
+	// Initialize the session
+	 require_once 'config.php';
+	 session_start();
+ 		
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,14 +37,14 @@
 		<hr class="line">
 		<hr class="line">
 		<p class="upper">
-			<a href=""> HOME </a> <br>
+			<a href="index.php"> HOME </a> <br>
 			<a href=""> Featured Articles </a> <br>
 			<a href=""> All Articles </a> <br>
 		</p>
 		<p class="lower">
 			<a href=""> Help </a> <br>
-			<a href=""> About Us </a> <br>
-			<a href=""> Contact Page </a> <br>
+			<a href="aboutUs.php"> About Us </a> <br>
+			<a href="contactPage.php"> Contact Page </a> <br>
 		</p>
 	</div>
 

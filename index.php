@@ -1,90 +1,90 @@
 <?php
-// Initialize the session
-require_once 'config.php';
-session_start();
 
-// If session variable is not set it will redirect to login page
-  if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
-  header("location: login.php");
+	// Initialize the session
+	 require_once 'config.php';
+	 session_start();
 
-  exit;
-}
-		$firstname = $_SESSION['firstname'];
+ 	// If session variable is not set it will redirect to login page
+  	 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  	 header("location: login.php");
   
+   	exit;
+	 }
+
+	 $firstname = $_SESSION['firstname'];
+ 		
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Home</title>
+	<title>Index</title>
 	<link rel="icon" href="images/usep.png">
-	
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-	<link rel="stylesheet" href="css/header.css">
-	<link rel="stylesheet" href="css/home.css">
-
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
 	<div class="container-fluid">
-	
-		<div class="page-header"> 
-		<img src="images/header.png">
-		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="header">
+					<img src="images/header.png" width="1360px">
+				</div>
+			</div>
 
-		<div class="col-xs-2">
-		<hr class="line">
-		<hr class="line">
-		<p class="upper">
-			<a href=""> HOME </a> <br>
-			<a href=""> Featured Articles </a> <br>
-			<a href=""> All Articles </a> <br>
-		</p>
-		<p class="lower">
-			<a href=""> Help </a> <br>
-			<a href=""> About Us </a> <br>
-			<a href=""> Contact Page </a> <br>
-		</p>
-		</div>
+			<div class="col-sm-2">
+					<hr>
+					<hr>
+					<a href="index.php"> HOME </a> <br>
+					<a href=""> Featured Articles </a><br>
+					<a href=""> All Articles </a><br>	
+					<br><br>
+					<br><br>
+					<br><br>
+					<br><br>
+					<br><br>
+					<br>
+					<a href=""> Help </a> <br>
+					<a href="aboutUs.php"> About Us </a> <br>
+					<a href="contactPage.php"> Contact Page </a> <br>				
+			</div>
 
-		<div class="col-md-7">
-	
+			<div class="col-sm-7">
+					<!--contenttssss-->
+			</div>
+
+			<div class="col-sm-3">
+				
+
+
+			<div class="form-group">
 			
-		</div>
-
-		
-		<div class="col-md-2">
-
-
-			<div class="panel-body">
-			
-			<label>Welcome back, <b> <?php echo $firstname; ?></b> !</label>
+			<label style="font-size: 20px">Welcome back, <b> <?php echo $firstname; ?></b> !</label>
 
 			<div class="list">
- 			<span class="glyphicon glyphicon-user"></span><a href="#" >  My Profile</a><br>
- 			<span class="glyphicon glyphicon-envelope"></span> <a href="#" >  Inbox</a>
+ 			<span class="glyphicon glyphicon-user" style="font-size: 20px"></span><a href="Profile.php" style="font-size: 18px">  My Profile</a><br>
+ 			<span class="glyphicon glyphicon-envelope" style="font-size: 20px"></span> <a href="#" style="font-size: 18px">  Inbox</a>
   			</div>
   			
-			<button type="button" class="btn <?php $_SESSION = array();  session_destroy();?>" onclick="window.location.href='login.php'">Log Out</button>
+			<button type="button" style="width: 270px; height: 40px; background-color: #36bfe9; color: white; margin-top: 120px; border-radius: 10%" onclick="window.location.href='logout.php'">Log Out</button>
 			</div>
 
-			<div class="container1">
-			<button type="button" class="chatbutt" >Chat Now</button>
+			<div class="chat">
+					<button type="button" class="chatbutt" data-toggle="modal" data-target="#alertModal">Chat Now</button>
+			</div>	
+
+			</div>
 			</div>
 
+			
 		</div>
-
-		</div>
-
-
-
+	</div>
 </body>
 </html>
