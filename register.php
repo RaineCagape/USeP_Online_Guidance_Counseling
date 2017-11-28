@@ -176,25 +176,72 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <div class="regForm">
                          <form action="<?php echo htmlspecialchars ($_SERVER['PHP_SELF']); ?>" method="post" >
 
-                            <div class="fname"><input type="text" name="fname" style="width: 350px; background-color: #CCCCCC" value="<?php echo $fname; ?>" placeholder="First Name" data-toggle="popover" data-placement="left" data-content="<?php echo $fname_err;?>"> </div>
+                            <div class="fname"><input type="text" id="fname" name="fname" style="width: 350px; background-color: #CCCCCC" value="<?php echo $fname; ?>" placeholder="First Name" data-toggle="popover" data-placement="left" data-content="<?php echo $fname_err;?>"> </div>
 
-                            <div class="lname"><input type="text" name="lname" style="width: 350px; background-color: #CCCCCC" value="<?php echo $lname; ?>" placeholder="Last Name" data-toggle="popover" data-placement="left" data-content="<?php echo $lname_err;?>"  ></div>
+                            <div class="lname"><input type="text" id="lname" name="lname" style="width: 350px; background-color: #CCCCCC" value="<?php echo $lname; ?>" placeholder="Last Name" data-toggle="popover" data-placement="left" data-content="<?php echo $lname_err;?>"  ></div>
 
-                            <div class="add"><input type="text" name="address" style="width: 350px; background-color: #CCCCCC" value="<?php echo $address; ?>" placeholder="Address" data-toggle="popover" data-placement="left" data-content="<?php echo $address_err;?>"  ></div>
+                            <div class="add"><input type="text" id="address" name="address" style="width: 350px; background-color: #CCCCCC" value="<?php echo $address; ?>" placeholder="Address" data-toggle="popover" data-placement="left" data-content="<?php echo $address_err;?>"  ></div>
 
-                            <div class="username"><input type="text" name="username" style="width: 350px; background-color: #CCCCCC" value="<?php echo $username; ?>" placeholder="Username" data-toggle="popover" data-placement="left" data-content="<?php echo $username_err;?>"  ></div>
+                            <div class="username"><input type="text" id="username" name="username" style="width: 350px; background-color: #CCCCCC" value="<?php echo $username; ?>" placeholder="Username" data-toggle="popover" data-placement="left" data-content="<?php echo $username_err;?>"  ></div>
 
-                            <div class="password"><input type="text" name="password" style="width: 350px; background-color: #CCCCCC" value="<?php echo $password; ?>" placeholder="Password" data-toggle="popover" data-placement="left" data-content="<?php echo $password_err;?>"  ></div>
+                            <div class="password"><input type="text" id="password" name="password" style="width: 350px; background-color: #CCCCCC" value="<?php echo $password; ?>" placeholder="Password" data-toggle="popover" data-placement="left" data-content="<?php echo $password_err;?>"  ></div>
 
-                            <div class="email"><input type="text" name="email" style="width: 350px; background-color: #CCCCCC" value="<?php echo $email; ?>" placeholder="E-mail"
+                            <div class="email"><input type="text" name="email" id="email" style="width: 350px; background-color: #CCCCCC" value="<?php echo $email; ?>" placeholder="E-mail"
                             data-toggle="popover" data-placement="left" data-content="<?php echo $email_err;?>"  ></div>
 
                             <br><br>
-                            <input type="button" class="cancelbutt" value="Cancel" onclick="window.location.href='index.php'"/>
+                            <input type="button" class="cancelbutt" value="Cancel" onclick="window.location.href='login.php'"/>
                             <input type="submit" class="regbutt" value="Sign up"/>
 
                             </form>
-                    </div>              
+                    </div>  
+
+                <script type="text/javascript">
+                     
+                   function confirmModal(){  
+                   
+                    var fname = document.getElementById(fname);
+                    var lname = document.getElementById(lname);
+                    var address = document.getElementById(address);
+                    var username = document.getElementById(username);
+                    var password = document.getElementById(password);
+                    var email = document.getElementById(email);
+
+                    
+
+                    if(fname != "" || lname != "" || address !="" || username != "" || password != "" || email != "" ){
+                         
+                         $('#alertModal').modal('show'); 
+                         return false;
+                    }
+
+                     else{
+                         window.location = 'index.php';
+                     }
+                   
+                  
+                   }
+
+               
+                </script>
+                    
+                <div class="modal fade" id="alertModal" role="dialog">
+                    <div class="modal-dialog">
+    
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title">CONFIRMATION!</h1>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+        
+                            <div class="modal-body">
+                                All changes you've made won't be saved. Are you sure you want to leave?<br><br><br><br><br>
+                                <button type="button" class="loginBtn" onclick="window.location.href='login.php'">Yes, I would like to leave</button><br><br>
+                                <button type="button" class="registerBtn" data-dismiss="modal" > No, continue</button>
+                            </div>
+                    </div>
+                
+
             </div>
         </div>
     </div>
