@@ -64,9 +64,9 @@
 					<span class="glyphicon glyphicon-user" style="font-size: 200px"></span><br>
 					<label style="font-size: 30px"><!--ngalan--><?php echo $firstname;?> <?php echo $lastname; ?></label><br><br>
 					<!-- <label>Country:</label><br> -->
-					<label>Address: </label><?php echo $address; ?><br>
-					<label>Role: </label><?php echo $role; ?><br>
-					<label>E-mail: </label><?php echo $email; ?>
+					<label>Address: </label> <?php echo $address; ?><br>
+					<label>Role: </label> <?php echo $role; ?><br>
+					<label>E-mail: </label> <?php echo $email; ?>
 
 				</div>
 				

@@ -66,14 +66,15 @@
 
 			<div class="form-group">
 			
-			<label style="font-size: 20px">Welcome back, <b> <?php echo $firstname; ?></b> !</label>
+			<label style="font-size: 22px">Welcome back, <b> <?php echo $firstname; ?></b> !</label>
 
 			<div class="list">
- 			<span class="glyphicon glyphicon-user" style="font-size: 20px"></span><a href="Profile.php" style="font-size: 18px">  My Profile</a><br>
- 			<span class="glyphicon glyphicon-envelope" style="font-size: 20px"></span> <a href="#" style="font-size: 18px">  Inbox</a>
+				<br>
+ 			<span class="glyphicon glyphicon-user" style="font-size: 22px"></span><a href="Profile.php" style="font-size: 21px">  My Profile</a><br>
+ 			<span class="glyphicon glyphicon-envelope" style="font-size: 22px"></span> <a href="#" style="font-size: 21px">  Inbox</a>
   			</div>
   			
-			<button type="button" style="width: 270px; height: 40px; background-color: #36bfe9; color: white; margin-top: 120px; border-radius: 10%" onclick="window.location.href='logout.php'">Log Out</button>
+			<button type="button" style="width: 270px; height: 40px; background-color: #36bfe9; color: white; margin-top: 96px; border-radius: 10%" onclick="window.location.href='logout.php'">Log Out</button>
 			</div>
 
 			<div class="chat">

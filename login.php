@@ -139,8 +139,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 				<div class="form-group">
 
-					<img src="images/usep.png" class="logo"><br>
-					<a href="register.php" style="color: blue; float: right; margin-top: 5px; margin-right: 10px">Register</a>
+					<img src="images/usep.png" class="logo"><br><br>
+					<!-- <a href="register.php" style="color: blue; float: right; margin-top: 5px; margin-right: 10px">Register</a> -->
 
 					<input type="text" name="username" value="<?php echo $username; ?>" placeholder="Username" style="height: 35px; width: 270px; background-color: #CCCCCC" data-toggle="popover" data-placement="left" data-content="<?php echo $username_err;?>" ><br><br>
 
@@ -156,6 +156,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				</div>
 
 			</div>
+            
 				 <div class="modal fade" id="alertModal" role="dialog">
     				<div class="modal-dialog">
     
