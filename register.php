@@ -190,7 +190,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             data-toggle="popover" data-placement="left" data-content="<?php echo $email_err;?>"  ></div>
 
                             <br><br>
-                            <input type="button" class="cancelbutt" value="Cancel" onclick="window.location.href='login.php'"/>
+                            <input type="button" class="cancelbutt" value="Cancel" onclick="confirmModal()"/>
                             <input type="submit" class="regbutt" value="Sign up"/>
 
                             </form>
@@ -209,12 +209,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                     
 
-                    if(fname != "" || lname != "" || address !="" || username != "" || password != "" || email != "" ){
+                    if($('#fname').val() != "" || $('#lname').val() != "" || $('#address').val() !="" || $('#username').val() != "" || $('#password').val() != "" || $('#email').val() != "" ){
                          
                          $('#alertModal').modal('show'); 
                          return false;
                     }
-
                      else{
                          window.location = 'index.php';
                      }
