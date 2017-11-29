@@ -1,0 +1,15 @@
+.col-sm-10{
+	padding-top: 30px;
+}
+
+.well{
+
+	padding: 30px !important;
+	width: 800px;
+	margin-bottom: 10px;
+}
+
+.name{
+	font-size: 30px;
+	padding-bottom: 5px;
+}
