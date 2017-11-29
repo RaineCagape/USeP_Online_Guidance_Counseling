@@ -23,6 +23,7 @@
 		<link rel="icon" href="images/usep.png">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/inboxStyle.css">
 	<link rel="stylesheet" href="css/profileStyle.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -55,7 +56,8 @@
 
 			<div class="col-sm-10">
 			
-				
+			<div class> </div>
+				<textarea class="form-control" rows="3" id="comment"></textarea>
 			</div>
 		
 	</div>
