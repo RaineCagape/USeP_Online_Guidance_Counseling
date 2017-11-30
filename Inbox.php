@@ -27,7 +27,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Inbox</title>
-        <link rel="icon" href="images/usep.png">
+
+    
+    <link rel="icon" href="images/usep.png">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/inboxStyle.css">
@@ -37,12 +39,14 @@
 <body>
     <div class="container-fluid">
         <div class="row">
+           
             <div class="col-md-12">
                 <div class="header">
                     <img src="images/header.png" width="1360px">
                 </div>
             </div>
 
+           
             <div class="col-sm-2">
                     <hr>
                     <hr>
@@ -55,19 +59,68 @@
                     <br><br>
                     <br><br>
                     <br>
-                    <a href=""> Help </a> <br>
+                    <a href="help.php"> Help </a> <br>
                     <a href="aboutUs.php"> About Us </a> <br>
-                    <a href="contactPage.php"> Contact Page </a> <br>                   
+                    <a href="contactUs.php"> Contact Page </a> <br>                   
             </div>
 
             <div class="col-sm-10">
-               
-               
-               <div class="well well-lg"><span class="name">Student 1</span></br>Student 1: Okay maam thanks a lot!</div>
+              
+                 <label style="font-size: 50px;">Inbox</label>
+              
+               <div class="container">
 
-        
+                    <div class="well well-lg" >
+                     <b style="color:skyblue;">*New Message</b><br>
+                         <span class="name">Cosette</span>
+                         <button type="button" class="btn btn-default btn-sm" >
+                         <span class="glyphicon glyphicon-trash"></span> Delete
+                         </button>
+                         <button type="button" class="btn btn-default btn-sm" >
+                         <span class="glyphicon glyphicon-comment"></span> Read
+                         </button>
+                         </br>
+                            Cosette: Okay maam thanks a lot!
+                     </div>
+
+                     <div class="well well-lg" style="background-color: gray;" >
+                         <span class="name">Anonymous Student 1</span>
+                         <button type="button" class="btn btn-default btn-sm" >
+                         <span class="glyphicon glyphicon-trash"></span> Delete
+                         </button>
+                         <button type="button" class="btn btn-default btn-sm" >
+                         <span class="glyphicon glyphicon-comment"></span> Read
+                         </button>
+                         </br>
+                            Student 1: hsvchjasthqwvdqwhv jchdvchvdhcvdshcvmdshcvmhsdvhvsdchvsmcvhmsvhvhmsdjfj bvkjdfvkdscvsdkcvvcsdcvjdcvvvvvvvvvvdnnnn nnnnnncbhdvsvcjjbedcjvewkghcgcxhgschgxcsxhgcsghcxhg scvgxhvsxgvsxvg
+                    
+                     </div>
+
+                     <div class="well well-lg" >
+                         <span class="name">Enjolras</span>
+                         <button type="button" class="btn btn-default btn-sm" >
+                         <span class="glyphicon glyphicon-trash"></span> Delete
+                         </button>
+                         <button type="button" class="btn btn-default btn-sm" >
+                         <span class="glyphicon glyphicon-comment"></span> Read
+                         </button>
+                         </br>
+                            You: Revolution?
+                    
+                     </div>
+
+
+
+
+                </div>     
+
+             </div>
+
+
+
 
         </div>
+
     </div>
     
 </body>

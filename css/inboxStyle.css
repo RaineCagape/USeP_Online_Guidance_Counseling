@@ -2,21 +2,43 @@
 	padding-top: 10px;
 }
 
+
+.container{
+	/*border-style: solid;
+	border-color: gray;*/
+	/*box-shadow: inset 0 20px 20px -20px rgba(0,0,0,0.8);*/
+	padding-top: 10px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	max-width: 1110px;
+	height : 460px;
+}
+
 .well{
 
 	padding: 30px !important;
-	width: 800px;
+	max-width: 1050px;
+	overflow-y: hidden;
+	overflow-x: hidden;
 	margin-bottom: 10px;
 }
 
 .name{
-	font-size: 30px;
+
+	font-size: 35px;
 	padding-bottom: 5px;
 }
+
 
 #comment{
 	margin-top: 0px !important;
 }
+
+.btn{
+	margin-top: -15px;
+	margin-left: 5px;
+}
+
 
 .messages{
 	margin-top: 20px;

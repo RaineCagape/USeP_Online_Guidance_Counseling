@@ -52,9 +52,9 @@
 					<br><br>
 					<br><br>
 					<br>
-					<a href=""> Help </a> <br>
+					<a href="help.php"> Help </a> <br>
 					<a href="aboutUs.php"> About Us </a> <br>
-					<a href="contactPage.php"> Contact Page </a> <br>				
+					<a href="contactUs.php"> Contact Page </a> <br>				
 			</div>
 
 			<div class="col-sm-7">
@@ -80,7 +80,7 @@
 			</div>
 
 			<div class="chat">
-					<button type="button" class="chatbutt" data-toggle="modal" data-target="#alertModal">Chat Now</button>
+					<button type="button" class="chatbutt" onclick="window.location.href='Inbox.php'">Chat Now</button>
 			</div>	
 
 			</div>

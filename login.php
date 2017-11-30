@@ -124,9 +124,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					<br><br>
 					<br><br>
 					<br>
-					<a href=""> Help </a> <br>
+					<a href="help.php"> Help </a> <br>
 					<a href="aboutUs.php"> About Us </a> <br>
-					<a href="contactPage.php"> Contact Page </a> <br>				
+					<a href="contactUs.php"> Contact Page </a> <br>				
 			</div>
 
 			<div class="col-sm-7">

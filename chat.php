@@ -11,6 +11,7 @@
    	exit;
 	 }
 
+	 $firstname = $_SESSION['firstname'];
 
  		
 ?>
@@ -49,15 +50,22 @@
 					<br><br>
 					<br><br>
 					<br>
-					<a href=""> Help </a> <br>
+					<a href="help.php"> Help </a> <br>
 					<a href="aboutUs.php"> About Us </a> <br>
-					<a href="contactPage.php"> Contact Page </a> <br>					
+					<a href="contactUs.php"> Contact Page </a> <br>					
 			</div>
 
 			<div class="col-sm-10">
-			
-			<div class> </div>
-				<textarea class="form-control" rows="3" id="comment"></textarea>
+				<a href="#" style="float: right; margin-right: 5px">Log Out</a><!--Leave page modal-->
+				<div class="messages">
+				<!--messages goes here-->				
+				</div>
+				<div>
+					<textarea class="form-control" rows="5" id="comment" placeholder="Write something here..." style="width: 1000px; resize: none;"></textarea>
+					<button type="button" class="btn btn-default btn-lg" style="float: right; margin-top: -50px; background-color: #36bfe9">
+         	 		<span class="glyphicon glyphicon-send"></span> Send 
+        			</button>
+        		</div>
 			</div>
 		
 	</div>
