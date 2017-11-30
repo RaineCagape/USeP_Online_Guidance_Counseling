@@ -21,3 +21,23 @@
 .desc{
 	margin-left: 30px;
 }
+
+.contactTitle{
+	margin-top: 100px;
+	margin-left: 25px;
+	font-weight: bold;
+}
+
+.info{
+	font-family: Times New Roman;
+	margin-left: 30px;
+}
+
+.address{
+	margin-left: 30px;
+}
+
+.number{
+	font-family: Lucida Console;
+	margin-left: 30px;
+}
