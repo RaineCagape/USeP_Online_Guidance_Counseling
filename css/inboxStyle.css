@@ -1,5 +1,5 @@
 .col-sm-10{
-	padding-top: 30px;
+	padding-top: 10px;
 }
 
 .well{
@@ -16,4 +16,16 @@
 
 #comment{
 	margin-top: 0px !important;
+}
+
+.messages{
+	margin-top: 20px;
+	margin-bottom: 15px;
+	border-style: dotted;
+	border-color: #CCCCCC;
+	height: 380px;
+}
+
+.chatbox{
+	display: inline;
 }
