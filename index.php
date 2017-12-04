@@ -73,7 +73,7 @@
 				<br>
  			<span class="glyphicon glyphicon-user" style="font-size: 22px"></span><a href="Profile.php" style="font-size: 21px">  My Profile</a><br>
 
- 			<span class="glyphicon glyphicon-envelope" style="font-size: 22px"></span> <a href="Inbox.php" style="font-size: 21px"> Inbox</a>
+ 			<span class="glyphicon glyphicon-envelope" style="font-size: 22px"></span> <a href="chatSys/chat.php" style="font-size: 21px"> Inbox</a>
   			</div>
   			
 			<button type="button" style="width: 270px; height: 40px; background-color: #36bfe9; color: white; margin-top: 96px; border-radius: 10%" onclick="window.location.href='logout.php'">Log Out</button>

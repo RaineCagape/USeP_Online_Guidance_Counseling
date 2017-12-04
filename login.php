@@ -3,7 +3,7 @@
 require_once 'config.php';
 
 // Define variables and initialize with empty values
-$username = $password = $firstname  = $lastname = $address = $email= $role="";
+$username = $password = $firstname  = $lastname = $address = $email= $role= $id="";
 $username_err = $password_err = "";
 
 // Processing form data when form is submitted
@@ -26,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT username,firstname,lastname,address,email,role,password FROM users WHERE username = ?";
+        $sql = "SELECT username,firstname,lastname,address,email,role,id,password FROM users WHERE username = ?";
 
         if($stmt = mysqli_prepare($link, $sql)){
 
@@ -44,7 +44,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Check if username exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $username, $firstname,$lastname,$address,$email,$role,$hashed_password);
+                    mysqli_stmt_bind_result($stmt, $username, $firstname,$lastname,$address,$email,$role,$id,$hashed_password);
                    
 				   if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
@@ -58,6 +58,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION['address'] = $address;
                             $_SESSION['email'] = $email;
                             $_SESSION['role'] = $role;
+                            $_SESSION['id'] = $id;
 
                             header("location: index.php");
                         } 	else{

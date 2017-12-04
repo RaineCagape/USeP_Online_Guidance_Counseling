@@ -3,7 +3,7 @@
 require_once 'config.php';
 
 // Define variables and initialize with empty values
-$username= $password= $fname= $lname= $address= $email= $role="";
+$username= $password= $fname= $lname= $address= $email= $role= $id="";
 $username_err = $password_err = $fname_err= $lname_err= $address_err= $email_err="";
 
 // Processing form data when form is submitted
@@ -112,6 +112,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $_SESSION['address'] = $address;
                 $_SESSION['email'] = $email;
                 $_SESSION['role'] = $role;
+                $_SESSION['id'] = $id;
 
                 // Redirect to login page
                 header("location: index.php");

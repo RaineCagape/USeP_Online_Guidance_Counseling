@@ -46,6 +46,7 @@
 	border-style: dotted;
 	border-color: #CCCCCC;
 	height: 380px;
+	overflow-y: scroll;
 }
 
 .chatbox{
