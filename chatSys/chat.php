@@ -27,12 +27,18 @@
 	<link rel="stylesheet" href="../css/inboxStyle.css">
 	<link rel="stylesheet" href="../css/profileStyle.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">	
+	</script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 
 
 	<script type="text/javascript">
-
+		$(document).ready(function(){
+        $('#myModal').modal('show');
+    });
 	    function updateChatAJAx(){
         var ajaxRequest;  // The variable that makes Ajax possible!
         ajaxRequest = new XMLHttpRequest();
@@ -106,7 +112,21 @@
         		</div>
 
 			</div>
-		
+		<div id="myModal" class="modal fade" role="dialog" ">
+                    <div class="modal-dialog">
+    
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h1 class="modal-title">GO ANON!</h1>
+                            </div>
+        
+                            <div class="modal-body" style="font-size: 25px">
+                                We, in UGTO, respect your feelings and concerns. We are aware that you might feel this, you can turn on the "Anonimity Button" to hide your profile.<br><br><br>
+                                <button type="button" class="loginBtn" onclick="window.location.href='#'" style="width: 560px; margin-bottom: 5px">Turn on Anon</button><br>
+                                <button type="button" class="registerBtn" data-dismiss="modal" style="width: 560px"> No, thanks.</button>
+                            </div>
+                    </div>
 	</div>
 	
 </body>
