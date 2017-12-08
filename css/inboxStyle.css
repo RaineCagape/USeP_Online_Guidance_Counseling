@@ -49,6 +49,6 @@
 	overflow-y: scroll;
 }
 
-.chatbox{
-	display: inline;
-}
+/*.chatbox{
+	display: block;
+}*/

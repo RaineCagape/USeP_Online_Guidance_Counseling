@@ -11,46 +11,6 @@
    	exit;
 	 }
 
-	  $role = $_SESSION['role'];
-
-     if($role == "Counselor"){
-        header("location: chatCounselor.php");
-     }
-
-
-	//  $userId= $message = $userName= "";
-
-	// if($_SERVER["REQUEST_METHOD"] == "POST"){
-
-		
-
- //        	$userId = $_SESSION['id'];
- //        	$userName = $_SESSION['firstname'];
- //        	$message = $_POST["message"];
-
-
- //        	if(!empty($message)){
-
- //        	$sql = "INSERT INTO chats(userId,message,chatUsername) VALUES (?,?,?)";
-
- //        	if ($stmt = mysqli_prepare($link,$sql)){
-
- //        		mysqli_stmt_bind_param($stmt,"iss",$param_userId,$param_message,$param_userName);
-
- //        		$param_userId = $userId;
- //        		$param_message = $message;
- //        		$param_userName = $userName;	
-
- //        		mysqli_stmt_execute($stmt);
-
- //        	}
-
- //          mysqli_stmt_close($stmt);
- //          // mysqli_close($link);
- //      }
-      
- //    }
-
 
  		
 ?>
@@ -63,6 +23,7 @@
 	<link rel="icon" href="../images/usep.png">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
  	<link rel="stylesheet" href="../css/style.css">
+ 	<link rel="stylesheet" href="../css/chatStyle.css">
 	<link rel="stylesheet" href="../css/inboxStyle.css">
 	<link rel="stylesheet" href="../css/profileStyle.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -91,7 +52,7 @@
 
 	$(document).ready(function(){
 
-		setTimeout("updateChatAJAx()",1000);
+		setInterval("updateChatAJAx()",1000);
 		
 	});
 	
@@ -125,13 +86,13 @@
 			</div>
 
 			<div class="col-sm-10">
-				<b>Student</b>
-				<a href="#" style="float: right; margin-right: 5px">Log Out</a><!--Leave page modal-->
+		<!-- 		<label style="font-size: 50px;">Chat</label> -->
+				<a href="../logout.php" style="float: right; margin-right: 5px">Log Out</a><!--Leave page modal-->
 
 
 				<form action="<?php echo htmlspecialchars ($_SERVER['PHP_SELF']); include'sendmessage.php'; ?>" id="form" method="post" >
 
-				<div class="messages" id="messages">
+				<div class="messages" id="messages" style="padding: 20px;">
 			
 				</div>
 

@@ -25,6 +25,7 @@
 		<link rel="icon" href="../images/usep.png">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
  	<link rel="stylesheet" href="../css/style.css">
+ 	<link rel="stylesheet" href="../css/chatStyle.css">
 	<link rel="stylesheet" href="../css/inboxStyle.css">
 	<link rel="stylesheet" href="../css/profileStyle.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -87,7 +88,7 @@
 
 			<div class="col-sm-10">
 				<b>Counselor</b>
-				<a href="#" style="float: right; margin-right: 5px">Log Out</a><!--Leave page modal-->
+				<a href="../logout.php" style="float: right; margin-right: 5px">Log Out</a><!--Leave page modal style="padding:20px;" -->
 
 				<form action="<?php echo htmlspecialchars ($_SERVER['PHP_SELF']); include'sendmessage.php'; ?>" id="form" method="post" >
 

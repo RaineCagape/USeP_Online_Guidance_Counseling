@@ -1,0 +1,31 @@
+body{
+	font-size: 10px;
+}
+
+.recieveText{
+	background-color: #CCCCCC;
+	color: black;
+	margin: 100px;
+/*	margin-left: 50px;*/
+/*	float:right;
+*/	white-space: normal;
+	word-wrap: break-word;
+	
+	padding: 20px;
+/*	margin-bottom: 25px;*/
+	max-width: 385px;
+
+}
+
+.sendText{
+	background-color: lightblue;
+	color: white;
+	white-space: normal;
+	word-wrap: break-word;
+	padding: 20px;
+/*	margin-bottom: 25px;*/
+	max-height: 100%;
+	max-width: 385px;
+
+
+}

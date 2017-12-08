@@ -24,7 +24,12 @@
         		$param_message = $message;
         		$param_userName = $userName;	
 
-        		mysqli_stmt_execute($stmt);
+        		if(mysqli_stmt_execute($stmt)){
+                        // session_start();
+
+                     header("location: chat.php");
+                       
+                    } 
 
         	}
 

@@ -4,8 +4,9 @@
 	 session_start();
 
 				$userId =$_SESSION['id'];
+				$idChat ="";
 
-				$sql = "SELECT message,chatUsername FROM chats ORDER BY ChatId ASC";
+				$sql = "SELECT message,chatUsername,userId FROM chats ORDER BY messageId ASC";
 
 					if($result = mysqli_query($link,$sql)){
 
@@ -13,7 +14,22 @@
 
 							while($row = mysqli_fetch_array($result)){
 
-								echo "<label>".$row['chatUsername']." : ". $row['message'] . "</label><br>";
+								$idChat = $row['userId'];
+
+								if($userId==$idChat){
+
+									echo "<div class='sendText'>You:</br>".$row['message']."</div><br>";
+
+
+								}
+
+								else{
+
+									echo "<div class='recieveText'>".$row['chatUsername'].":</br>".$row['message']."</div><br>";
+
+								}
+
+								// echo "<label>".$row['chatUsername']." : ". $row['message'] . "</label><br>";
 						
 
 							}
