@@ -12,6 +12,7 @@
 	 }
 
 	 $firstname = $_SESSION['firstname'];
+	 $role = $_SESSION['role'];
 
  		
 ?>
@@ -75,6 +76,15 @@
 
  			<span class="glyphicon glyphicon-envelope" style="font-size: 22px"></span> <a href="chatSys/chat.php" style="font-size: 21px"> Inbox</a>
   			</div>
+
+  			<?php 
+  				if($role=='Counselor'){
+  					
+  					echo "<br><span class='glyphicon glyphicon-plus' style='font-size: 22px'></span> <a href='register.php' style='font-size: 21px'> Add Account </a>";
+
+  				}
+
+  			?>
   			
 			<button type="button" style="width: 270px; height: 40px; background-color: #36bfe9; color: white; margin-top: 96px; border-radius: 10%" onclick="window.location.href='logout.php'">Log Out</button>
 			</div>
