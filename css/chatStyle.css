@@ -3,12 +3,13 @@ body{
 }
 
 .recieveText{
+	border-radius: 5%;
 	background-color: #CCCCCC;
 	color: black;
-	margin: 100px;
+	margin-left: 650px;
 /*	margin-left: 50px;*/
-/*	float:right;
-*/	white-space: normal;
+/*	float:right;*/
+	white-space: normal;
 	word-wrap: break-word;
 	
 	padding: 20px;
@@ -18,14 +19,16 @@ body{
 }
 
 .sendText{
+	border-radius: 5%;
 	background-color: lightblue;
 	color: white;
 	white-space: normal;
 	word-wrap: break-word;
 	padding: 20px;
 /*	margin-bottom: 25px;*/
-	max-height: 100%;
+	/*max-height: 100%;*/
 	max-width: 385px;
 
 
 }
+

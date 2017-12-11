@@ -17,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     else{
         // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE username = ?";
+        $sql = " SELECT id FROM users WHERE username = ?";
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -112,10 +112,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $_SESSION['address'] = $address;
                 $_SESSION['email'] = $email;
                 $_SESSION['role'] = $role;
-                $_SESSION['id'] = $id;
 
                 // Redirect to login page
-                header("location: index.php");
+                header("location: login.php");
             } else{
                 echo "Something went wrong. Please try again later.";
             }

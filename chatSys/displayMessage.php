@@ -1,49 +1,57 @@
 <?php 
 			
-	 require_once '../config.php';
-	 session_start();
+	require_once '../config.php';
+	session_start();
 
-				$userId =$_SESSION['id'];
-				$idChat ="";
+	$userId = $_SESSION['id'];
+	$role = $_SESSION['role'];
+	$threadId = $_SESSION['threadId'];
+	// if($role=='Counselor'){
 
-				$sql = "SELECT message,chatUsername,userId FROM chats ORDER BY messageId ASC";
+	// 	$_SESSION['threadId']= $GET["uid"];
+	// }
 
-					if($result = mysqli_query($link,$sql)){
+	
 
-						if(mysqli_num_rows($result) > 0){
+	$sql = "SELECT message,chatUsername,userId FROM chats WHERE threadId = ($threadId) ORDER BY messageId ASC";
 
-							while($row = mysqli_fetch_array($result)){
+		
+		if($result = mysqli_query($link,$sql)){
 
-								$idChat = $row['userId'];
+			if(mysqli_num_rows($result) > 0){
 
-								if($userId==$idChat){
+				while($row = mysqli_fetch_array($result)){
 
-									echo "<div class='sendText'>You:</br>".$row['message']."</div><br>";
+					$idChat = $row['userId'];
 
+					
+						if($userId==$idChat){
 
-								}
+							echo "<div class='sendText'>You:</br>".$row['message']."</div><br>";
 
-								else{
+						}
 
-									echo "<div class='recieveText'>".$row['chatUsername'].":</br>".$row['message']."</div><br>";
+						else{
 
-								}
+							echo "<div class='recieveText'>".$row['chatUsername'].":</br>".$row['message']."</div><br>";
 
-								// echo "<label>".$row['chatUsername']." : ". $row['message'] . "</label><br>";
+						}
+
 						
-
-							}
+						
+					}
+							
 							mysqli_free_result($result);
 
 						}
 
 
-						else{
+		else{
 
-							echo "<p>Start Convo</p>";
-						}
+				echo "<label>Start Convo</label>";
+			}
                              					
 							 mysqli_close($link);
-				}
+		}
 
 ?>

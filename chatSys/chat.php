@@ -2,6 +2,7 @@
 
 	// Initialize the session
 	 require_once '../config.php';
+
 	 session_start();
 
  	// If session variable is not set it will redirect to login page
@@ -11,6 +12,19 @@
    	exit;
 	 }
 
+	 $role = $_SESSION['role']; 
+	
+
+	 if($role == "Counselor"){
+ 
+       	 $threadId=$_GET["thread"];
+         $_SESSION['threadId'] = $threadId;
+
+       }
+
+
+
+	
 
  		
 ?>
@@ -36,17 +50,30 @@
 
 
 	<script type="text/javascript">
-		$(document).ready(function(){
-        $('#myModal').modal('show');
-    });
+
+		function showModal(){
+
+		var role ="<?php echo $_SESSION['role']; ?>";
+			
+		if(role =="Student"){
+			
+		
+	        $('#myModal').modal('show');
+	    	
+		}
+		
+		}
+
 	    function updateChatAJAx(){
         var ajaxRequest;  // The variable that makes Ajax possible!
         ajaxRequest = new XMLHttpRequest();
+         var element = document.getElementById('messages');
         // Create a function that will receive data sent from the server
         ajaxRequest.onreadystatechange = function(){
                 if(ajaxRequest.readyState == 4){
                         //The response
                     document.getElementById('messages').innerHTML = ajaxRequest.responseText;
+                      element.scrollTop = element.scrollHeight - element.clientHeight;
                 }
 
         }
@@ -59,6 +86,7 @@
 	$(document).ready(function(){
 
 		setInterval("updateChatAJAx()",1000);
+		showModal();
 		
 	});
 	
@@ -92,11 +120,21 @@
 			</div>
 
 			<div class="col-sm-10">
-		<!-- 		<label style="font-size: 50px;">Chat</label> -->
-				<a href="../logout.php" style="float: right; margin-right: 5px">Log Out</a><!--Leave page modal-->
+				<a href="../logout.php" style="float: right; margin-right: 10px">Log Out</a>
+				<?php 
+
+				if($_SESSION['role']=='Counselor'){
+					?>
+					<a href="Inbox.php" style="float: right; margin-right: 10px">Inbox</a>';
+					<?php
+				}
+				?>
+
+				<!--Leave page modal-->
 
 
-				<form action="<?php echo htmlspecialchars ($_SERVER['PHP_SELF']); include'sendmessage.php'; ?>" id="form" method="post" >
+
+				<form action="<?php echo htmlspecialchars ($_SERVER['PHP_SELF']); include'sendmessage.php' ?>" id="form" method="post" >
 
 				<div class="messages" id="messages" style="padding: 20px;">
 			
@@ -112,6 +150,8 @@
         		</div>
 
 			</div>
+
+
 		<div id="myModal" class="modal fade" role="dialog" ">
                     <div class="modal-dialog">
     

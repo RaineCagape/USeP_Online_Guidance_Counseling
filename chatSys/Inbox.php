@@ -12,13 +12,22 @@
      }
 
      $role = $_SESSION['role'];
+     $studId = $_SESSION['id'];
+    
 
      if($role == "Student"){
+        
         header("location: chat.php");
+        $_SESSION['threadId']=$studId;
+        
+       
      }
+     
+     
+     
+    
 
-
-
+     
         
 ?>
 
@@ -35,6 +44,37 @@
     <link rel="stylesheet" href="../css/inboxStyle.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+     function updateChatAJAx(){
+        var ajaxRequest;  // The variable that makes Ajax possible!
+        ajaxRequest = new XMLHttpRequest();
+        // Create a function that will receive data sent from the server
+        ajaxRequest.onreadystatechange = function(){
+                if(ajaxRequest.readyState == 4){
+                        //The response
+                    document.getElementById('inbox').innerHTML = ajaxRequest.responseText;
+                    // document.getElementById('messages').scrollIntoView(true);
+                }
+
+        }
+
+        ajaxRequest.open("GET", "chatGenerate.php", true);
+        ajaxRequest.send(null);
+        
+     }
+
+
+    $(document).ready(function(){
+
+        setInterval("updateChatAJAx()",1000);
+
+        
+    });
+</script>
 </head>
 <body>
     <div class="container-fluid">
@@ -68,51 +108,15 @@
               
                  <label style="font-size: 50px;">Inbox</label>
               
-               <div class="container">
-
-                    <div class="well well-lg" >
-                     <b style="color:skyblue;">*New Message</b><br>
-                         <span class="name">Cosette</span>
-                         <button type="button" class="btn btn-default btn-sm" >
-                         <span class="glyphicon glyphicon-trash"></span> Delete
-                         </button>
-                         <button type="button" class="btn btn-default btn-sm" >
-                         <span class="glyphicon glyphicon-comment"></span> Read
-                         </button>
-                         </br>
-                            Cosette: Okay maam thanks a lot!
-                     </div>
-
-                     <div class="well well-lg" style="background-color: gray;" >
-                         <span class="name">Anonymous Student 1</span>
-                         <button type="button" class="btn btn-default btn-sm" >
-                         <span class="glyphicon glyphicon-trash"></span> Delete
-                         </button>
-                         <button type="button" class="btn btn-default btn-sm" >
-                         <span class="glyphicon glyphicon-comment"></span> Read
-                         </button>
-                         </br>
-                            Student 1: hsvchjasthqwvdqwhv jchdvchvdhcvdshcvmdshcvmhsdvhvsdchvsmcvhmsvhvhmsdjfj bvkjdfvkdscvsdkcvvcsdcvjdcvvvvvvvvvvdnnnn nnnnnncbhdvsvcjjbedcjvewkghcgcxhgschgxcsxhgcsghcxhg scvgxhvsxgvsxvg
-                    
-                     </div>
-
-                     <div class="well well-lg" >
-                         <span class="name">Enjolras</span>
-                         <button type="button" class="btn btn-default btn-sm" >
-                         <span class="glyphicon glyphicon-trash"></span> Delete
-                         </button>
-                         <button type="button" class="btn btn-default btn-sm" >
-                         <span class="glyphicon glyphicon-comment"></span> Read
-                         </button>
-                         </br>
-                            You: Revolution?
-                    
-                     </div>
+               <div class="container" id="inbox">
 
 
 
 
-                </div>     
+                </div>    
+
+
+
 
              </div>
 

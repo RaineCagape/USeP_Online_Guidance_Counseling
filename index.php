@@ -74,10 +74,9 @@
 				<br>
  			<span class="glyphicon glyphicon-user" style="font-size: 22px"></span><a href="Profile.php" style="font-size: 21px">  My Profile</a><br>
 
- 			<span class="glyphicon glyphicon-envelope" style="font-size: 22px"></span> <a href="chatSys/chat.php" style="font-size: 21px"> Inbox</a>
-  			</div>
+ 			<span class="glyphicon glyphicon-envelope" style="font-size: 22px"></span> <a href="chatSys/Inbox.php" style="font-size: 21px"> Inbox</a>
 
-  			<?php 
+ 			<?php 
   				if($role=='Counselor'){
   					
   					echo "<br><span class='glyphicon glyphicon-plus' style='font-size: 22px'></span> <a href='register.php' style='font-size: 21px'> Add Account </a>";
@@ -86,11 +85,14 @@
 
   			?>
   			
-			<button type="button" style="width: 270px; height: 40px; background-color: #36bfe9; color: white; margin-top: 96px; border-radius: 10%" onclick="window.location.href='logout.php'">Log Out</button>
+  			</div>
+
+
+			<button type="button" style="width: 270px; height: 40px; background-color: #36bfe9; color: white; margin-top: 70px; border-radius: 10%" onclick="window.location.href='logout.php'">Log Out</button>
 			</div>
 
 			<div class="chat">
-					<button type="button" class="chatbutt" onclick="window.location.href='Inbox.php'">Chat Now</button>
+					<button type="button" class="chatbutt" onclick="window.location.href='chatSys/Inbox.php'">Chat Now</button>
 			</div>	
 
 			</div>
