@@ -16,16 +16,15 @@
     
 
      if($role == "Student"){
+
+        $cookie_name="threadId";
+        $cookie_value=$studId;
+
+        setcookie($cookie_name,$cookie_value);
         
         header("location: chat.php");
-        $_SESSION['threadId']=$studId;
         
-       
-     }
-     
-     
-     
-    
+       }
 
      
         

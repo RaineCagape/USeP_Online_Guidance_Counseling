@@ -15,16 +15,16 @@
 	 $role = $_SESSION['role']; 
 	
 
-	 if($role == "Counselor"){
- 
-       	 $threadId=$_GET["thread"];
-         $_SESSION['threadId'] = $threadId;
+	 if($role == "Counselor"){       
 
-       }
+	 	$cookie_name="threadId"; 
+        $cookie_value=$_GET["thread"];
+
+        setcookie($cookie_name,$cookie_value);
+         
+      }
 
 
-
-	
 
  		
 ?>
@@ -89,7 +89,7 @@
 		showModal();
 		
 	});
-	
+
 	</script>
 
 </head>
@@ -120,12 +120,13 @@
 			</div>
 
 			<div class="col-sm-10">
+				<!-- <label><?php echo $_SESSION['threadId']; ?></label> --> 
 				<a href="../logout.php" style="float: right; margin-right: 10px">Log Out</a>
 				<?php 
 
 				if($_SESSION['role']=='Counselor'){
 					?>
-					<a href="Inbox.php" style="float: right; margin-right: 10px">Inbox</a>';
+					<a href="Inbox.php" style="float: right; margin-right: 10px">Inbox</a>
 					<?php
 				}
 				?>
@@ -133,8 +134,7 @@
 				<!--Leave page modal-->
 
 
-
-				<form action="<?php echo htmlspecialchars ($_SERVER['PHP_SELF']); include'sendmessage.php' ?>" id="form" method="post" >
+				<form action="<?php echo htmlspecialchars ($_SERVER['PHP_SELF']); include 'sendmessage.php'; ?> " id="form" method="post" >
 
 				<div class="messages" id="messages" style="padding: 20px;">
 			

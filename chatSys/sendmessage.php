@@ -15,13 +15,16 @@
         	$userId = $_SESSION['id'];
             $message = $_POST["message"];
         	$userName = $_SESSION['firstname'];
-            // $flag = 'new'; 
+            $threadId = $_COOKIE['threadId'];
+            
+            // $flag = 'new'; s
 
-            if($role=='Student'){
+           //  if($role=='Student'){
 
-            $threadId =  $_SESSION['threadId'];
+           //  $threadId =  $_COOKIE[$cookie_name];
 
-           }
+           // }
+
 
 
         	if(!empty($message)){
@@ -38,27 +41,10 @@
             		$param_userName = $userName;
                     // $param_flag = $flag;
 
-
-            		if(mysqli_stmt_execute($stmt)){
-                    
-
-                    
-                     header("location: chat.php");
-
-                       
-                    } 
-
-                    else{
-                            echo "Sending went wrong. Please try again later.";
-                    }
-
-
-        	    }
-
-                mysqli_stmt_close($stmt);
-
-                 // mysqli_close($link);
-              }
+                    mysqli_stmt_execute($stmt);
+            		
+                }
+            }
       
     }
 

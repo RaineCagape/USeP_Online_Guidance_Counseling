@@ -5,11 +5,8 @@
 
 	$userId = $_SESSION['id'];
 	$role = $_SESSION['role'];
-	$threadId = $_SESSION['threadId'];
-	// if($role=='Counselor'){
-
-	// 	$_SESSION['threadId']= $GET["uid"];
-	// }
+	$threadId = $_COOKIE['threadId'];
+	
 
 	
 

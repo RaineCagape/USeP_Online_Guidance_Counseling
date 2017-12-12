@@ -8,7 +8,7 @@
 
      $sql="SELECT chats.message, users.firstname, chats.userId, chats.threadId, users.id, users.role ";
      $sql .= "FROM chats  ";
-     $sql .= "RIGHT JOIN users on chats.userId = users.id ";
+     $sql .= "JOIN users ON chats.userId = users.id ";
      $sql .= "WHERE users.role = 'Student'";
      $sql .= "ORDER BY chats.messageId DESC ";
 
