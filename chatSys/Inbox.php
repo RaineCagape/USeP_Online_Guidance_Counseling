@@ -17,10 +17,8 @@
 
      if($role == "Student"){
 
-        $cookie_name="threadId";
-        $cookie_value=$studId;
-
-        setcookie($cookie_name,$cookie_value);
+        $_SESSION['threadId'] =$studId;
+      
         
         header("location: chat.php");
         

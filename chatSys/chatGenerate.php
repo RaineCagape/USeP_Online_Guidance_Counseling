@@ -11,6 +11,7 @@
      $sql .= "JOIN users ON chats.userId = users.id ";
      $sql .= "WHERE users.role = 'Student'";
      $sql .= "ORDER BY chats.messageId DESC ";
+  
 
      if($result = mysqli_query($link,$sql)){
 
@@ -40,7 +41,7 @@
 <!--  -->
                         
                         </br>
-                            <?php echo $message ?> <?php echo $threadId ?> 
+                            <?php echo $message ?>  
                     
                      </div>
                  </form>

@@ -5,7 +5,7 @@
 
 	$userId = $_SESSION['id'];
 	$role = $_SESSION['role'];
-	$threadId = $_COOKIE['threadId'];
+	$threadId = $_SESSION['threadId'];
 	
 
 	

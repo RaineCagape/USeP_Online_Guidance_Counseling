@@ -17,13 +17,61 @@
 
 	 if($role == "Counselor"){       
 
-	 	$cookie_name="threadId"; 
-        $cookie_value=$_GET["thread"];
+      $_SESSION['threadId'] = $_GET['thread']; 
 
-        setcookie($cookie_name,$cookie_value);
-         
-      }
+     }
 
+
+     $userId= $message = $userName= $threadId="";
+	
+
+    if(isset($_POST['send'])){
+            
+        	$userId = $_SESSION['id'];
+            $message = $_POST["message"];
+        	$userName = $_SESSION['firstname'];
+        	$threadId = $_SESSION['threadId'];
+      
+
+		    if(!empty($message)){
+
+		        $sql = "INSERT INTO chats (threadId,userId,message,chatUsername) VALUES (?,?,?,?)";
+
+		        if ($stmt = mysqli_prepare($link,$sql)){
+
+		            mysqli_stmt_bind_param($stmt,"iiss",$param_threadId,$param_userId,$param_message,$param_userName);
+
+		            $param_threadId = $threadId;
+		            $param_userId = $userId;
+		            $param_message = $message;
+		            $param_userName = $userName;
+		                    // $param_flag = $flag;
+		            // mysqli_stmt_execute($stmt);
+
+		            if(mysqli_stmt_execute($stmt)){
+
+		            	header("location: chat.php?thread=$threadId");
+		            }
+
+
+		            else{
+		                ?>
+		                    <script type="text/javascript">
+		                    	alert('Error in Sending message');
+		                    </script>
+		                <?php
+		            }
+
+
+		         }
+
+		    }
+
+
+    }
+
+
+     
 
 
  		
@@ -120,26 +168,28 @@
 			</div>
 
 			<div class="col-sm-10">
-				<!-- <label><?php echo $_SESSION['threadId']; ?></label> --> 
+				 
 				<a href="../logout.php" style="float: right; margin-right: 10px">Log Out</a>
 				<?php 
+			// <label><php echo $_SESSION['threadId']; ></label> 
 
 				if($_SESSION['role']=='Counselor'){
 					?>
 					<a href="Inbox.php" style="float: right; margin-right: 10px">Inbox</a>
 					<?php
 				}
+
+	// action="<?php echo htmlspecialchars ($_SERVER['PHP_SELF'])?
 				?>
 
 				<!--Leave page modal-->
-
-
-				<form action="<?php echo htmlspecialchars ($_SERVER['PHP_SELF']); include 'sendmessage.php'; ?> " id="form" method="post" >
-
 				<div class="messages" id="messages" style="padding: 20px;">
 			
 				</div>
 
+	
+
+				<form id="form" method="post" >
 
 					<textarea class="form-control" rows="5" name="message" id="message" placeholder="Write something here..." style="width: 1000px; resize: none;"></textarea>
 
