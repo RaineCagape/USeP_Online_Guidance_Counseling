@@ -6,10 +6,10 @@
 
 
 
-     $studentName = $message = $threadId= "";
+     $studentName = $message = $threadId=  $chatName ="";
 
     
-     $sql = "SELECT firstname, id FROM users WHERE role = 'Student' ";
+     $sql = "SELECT firstname,id FROM users WHERE role = 'Student' ";
     
 
      if($result = mysqli_query($link,$sql)){
@@ -23,7 +23,7 @@
                     $id = $row['id'];  
 
 
-                            $sql1 = "SELECT message, threadId, chatUsername FROM chats WHERE threadId = ($id) ORDER BY messageId DESC LIMIT 1";
+                            $sql1 = "SELECT message, threadId, chatUsername, chatType FROM chats WHERE threadId = ('$id') ORDER BY messageId DESC LIMIT 1";
 
                                 if($result1 = mysqli_query($link,$sql1)){
 
@@ -33,19 +33,25 @@
 
                                           $message = $row1['message'];
                                           $threadId = $row1['threadId'];
-                                          $name=$row1['chatUsername'];
+                                          $chatType = $row1['chatType'];
+                                          $name= $row1['chatUsername'];
                                           $ifCounselor = $_SESSION['firstname'];
 
-                                          if($ifCounselor == $name){
-                                            $chatName = "You";
-                                          }
-                                          
-                                          else{
-                                            $chatName = $name;
-                                          }
 
                                               if(!empty($message)){
 
+
+                                                if($chatType == "reg"){
+
+
+                                                  if($ifCounselor == $name){
+                                                    $chatName = "You";
+                                                  }
+                                                  
+                                                  else{
+                                                    $chatName = $name;
+                                                  }
+                                              
                                               ?>
                                              
                                                     <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" >
@@ -53,7 +59,7 @@
                                                       <div class='well well-lg'  >
 
                                                         <span class='name'><?php echo $studentName ;?></span>                        
-                                                        <button type='button' name="read" class='btn btn-default btn-sm' onclick="window.location.href='chat.php?thread=<?php echo $threadId; ?>' " >
+                                                        <button type='button' name="read" class='btn btn-default btn-sm' onclick="window.location.href='chat.php?thread=<?php echo $threadId; ?>&type=<?php echo $chatType;?>' " >
                                                         <span class='glyphicon glyphicon-comment'></span> Read
                                                         </button>
                                     <!--  -->           
@@ -62,18 +68,56 @@
                                                             
                                                         <?php
 
+                                                  }////// regular
+                                                        
+
+                                                  elseif ($chatType == "anon") {
+
+
+                                                        if($ifCounselor == $name){
+                                                          $chatName = "You";
+                                                        }
+                                                        
+                                                        else{
+                                                          $chatName = "Student";
+                                                        }
+ 
+                                                    ?>
+                                             
+                                                        <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" >
+
+                                                          <div class='well well-lg' style="background-color: #666666;"  >
+
+                                                            <span class='name' style="color: white;">Anonymous Student</span>                        
+                                                            <button type='button' name="read" class='btn btn-default btn-sm' onclick="window.location.href='chat.php?thread=<?php echo $threadId; ?>&type=<?php echo $chatType;?>' " >
+                                                            <span class='glyphicon glyphicon-comment'></span> Read
+                                                            </button>
+                                        <!--  -->           
+                                                            </br>
+                                                            <p><?php echo $chatName ?>: <?php echo $message ?></p>  
+                                                                
+                                                            <?php
+
+
+                                                  }///// anon
+
                                             }/////////// empty message
                                                 
 
                                         }///// 2nd while 
                                         mysqli_free_result($result1);
 
-                                  }//// mysqli num rows 
-                            }//////////////////// mysqli query
+                                    }//// mysqli num rows 
+                                     
 
+                                }//////////////////// mysqli query 
+                                   
                         ?>
-                
-                 </div>
+
+
+
+                    
+                     </div>
                  </form>
 
                 <?php

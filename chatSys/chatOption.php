@@ -1,81 +1,44 @@
 <?php
 
-	// Initialize the session
-	 require_once '../config.php';
+    // Initialize the session
+     require_once '../config.php';
+     session_start();
 
-	 session_start();
-
- 	// If session variable is not set it will redirect to login page
-  	 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
-  	 header("location: login.php");
+    // If session variable is not set it will redirect to login page
+     if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+     header("location: login.php");
   
-   	exit;
-	 }
+    exit;
+     }
 
-	 $role = $_SESSION['role'];
+     $role = $_SESSION['role'];
+     $studId = $_SESSION['id'];
+    
+     $ifExist = "";
 
+     if($role == "Student"){
 
-	 if($role == "Counselor"){       
+        $_SESSION['threadId'] = $studId;
+        
+        
 
-      $_SESSION['threadId'] = $_GET['thread']; 
-	 
+            if($_SESSION['chatType'] != "none"){
 
-     }  $_SESSION['chatType'] = $_GET['type']; 
+                    $ifExist = "FALSE";
+                    header("location: chat.php");
+                }
 
+                else{
 
-     $userId= $message = $userName= $threadId= $chatType="";
-	
-
-    if(isset($_POST['send'])){
-            
-        	$userId = $_SESSION['id'];
-            $message = $_POST["message"];
-        	$userName = $_SESSION['firstname'];
-        	$threadId = $_SESSION['threadId'];
-        	$chatType =  $_SESSION['chatType'];
-
-
-		    if(!empty($message)){
-
-		        $sql = "INSERT INTO chats (threadId,userId,message,chatUsername,chatType) VALUES (?,?,?,?,?)";
-
-		        if ($stmt = mysqli_prepare($link,$sql)){
-
-		            mysqli_stmt_bind_param($stmt,"iisss",$param_threadId,$param_userId,$param_message,$param_userName,$param_chatType);
-
-		            $param_threadId = $threadId;
-		            $param_userId = $userId;
-		            $param_message = $message;
-		            $param_userName = $userName;
-		            $param_chatType = $chatType;
-
-		            if(mysqli_stmt_execute($stmt)){
-
-		            	
-		            	header("location: chat.php?thread=$threadId&type=$chatType");
-		            	
-		            }
-
-
-		            else{
-		                ?>
-		                    <script type="text/javascript">
-		                    	alert('Error in Sending message');
-		                    </script>
-		                <?php
-		            }
-
-
-		         }
-
-		    }
-
-
+                    $ifExist = "TRUE";
+         
+                } 
+        
     }
-		 	
- 		
-?>
 
+     
+        
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -97,29 +60,18 @@
 	
 	<script type="text/javascript">
 
-		
-	    function updateChatAJAx(){
-        var ajaxRequest;  // The variable that makes Ajax possible!
-        ajaxRequest = new XMLHttpRequest();
-         var element = document.getElementById('messages');
-        // Create a function that will receive data sent from the server
-        ajaxRequest.onreadystatechange = function(){
-                if(ajaxRequest.readyState == 4){
-                        //The response
-                    document.getElementById('messages').innerHTML = ajaxRequest.responseText;
-                      element.scrollTop = element.scrollHeight - element.clientHeight;
-                }
-
+		function showModal(){
+            
+            var check ="<?php echo $ifExist;?>";
+                
+            if(check == "TRUE"){
+                
+                $('#myModal').modal('show');
+                
+            }
         }
 
-        ajaxRequest.open("GET", "displayMessage.php", true);
-        ajaxRequest.send(null);
-        
-}
-
 	$(document).ready(function(){
-
-		setInterval("updateChatAJAx()",1000);
 		showModal();
 		
 	});
@@ -154,7 +106,6 @@
 			</div>
 
 			<div class="col-sm-10">
-				
 				 
 				<a href="../logout.php" style="float: right; margin-right: 10px">Log Out</a>
 				<?php 
@@ -189,6 +140,23 @@
 			</div>
 
 
+
+    <div id="myModal" class="modal fade" role="dialog" ">
+                    <div class="modal-dialog">
+    
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h1 class="modal-title">GO ANON!</h1>
+                            </div>
+        
+                            <div class="modal-body" style="font-size: 25px">
+                                We, in UGTO, respect your feelings and concerns. We are aware that you might feel this, you can turn on the "Anonimity Button" to hide your profile.<br><br><br>
+                                <button type="button" class="loginBtn" onclick="window.location.href='chat.php?type=anon'" style="width: 560px; margin-bottom: 5px">Turn on Anon</button><br>
+                                <button type="button" class="registerBtn"  onclick="window.location.href='chat.php?type=reg'" style="width: 560px"> No, thanks.</button>
+                            </div>
+                    </div>
+    </div>
 	
 </body>
 </html>

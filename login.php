@@ -60,6 +60,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION['role'] = $role;
                             $_SESSION['id'] = $id;
 
+                            $chatType = "";
+
+                            if($_SESSION['role']=="Student"){
+
+                                $sql1 = "SELECT chatType FROM chats WHERE userId = ($id) LIMIT 1";
+
+                                $result1 = mysqli_query($link,$sql1);
+
+                                if(mysqli_num_rows($result1)>0){
+
+                                    while($row1 = mysqli_fetch_array($result1)){
+
+                                        $chatType = $row1['chatType'];
+
+                                    }
+
+                                } 
+
+                                else{
+                                    $chatType = "none";
+                                }
+
+                                $_SESSION['chatType'] = $chatType;
+
+                            }
 
                             header("location: index.php");
                         } 	else{

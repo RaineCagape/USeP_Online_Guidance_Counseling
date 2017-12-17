@@ -14,12 +14,13 @@
      $role = $_SESSION['role'];
      $studId = $_SESSION['id'];
     
- 
+     $ifExist = "";
 
      if($role == "Student"){
 
-        $_SESSION['threadId'] = $studId; 
-        header("location: chat.php");
+         $_SESSION['threadId'] = $studId;
+        
+        header("location: chatOption.php");
                 
         
     }

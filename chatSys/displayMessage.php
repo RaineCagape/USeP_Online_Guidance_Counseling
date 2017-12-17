@@ -11,7 +11,7 @@
 
 	
 
-	$sql = "SELECT message,chatUsername,userId FROM chats WHERE threadId = ($threadId) ORDER BY messageId ASC";
+	$sql = "SELECT message,chatUsername,userId,chatType FROM chats WHERE threadId = ($threadId) ORDER BY messageId ASC";
 
 		
 		if($result = mysqli_query($link,$sql)){
@@ -20,8 +20,12 @@
 
 				while($row = mysqli_fetch_array($result)){
 
-					$idChat = $row['userId'];
 
+					$chatType = $row['chatType'];
+					$idChat = $row['userId'];
+					// $messageStat = $row['status'];
+
+						if($chatType=="reg"){
 
 					/////////////////////////////////			
 							if($userId==$idChat){
@@ -37,7 +41,24 @@
 							}
 
 						
-						
+						} ////////////////	
+
+						elseif ($chatType=="anon") {
+
+							if($userId==$idChat){
+
+								echo "<div class='sendTextAnon'>".$row['message']."</div><br>";
+
+							}
+
+							else{
+
+								echo "<div class='recieveTextAnon'>".$row['message']."</div><br>";
+
+							}
+							
+						}
+
 
 				}
 							
@@ -51,7 +72,7 @@
 				echo "<label>Start Convo</label>";
 			}
                              					
-					mysqli_close($link);
+							 mysqli_close($link);
 		}
 
 ?>
