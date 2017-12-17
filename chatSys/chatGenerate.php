@@ -2,16 +2,15 @@
 <?php 
             
      require_once '../config.php';
+     session_start();
+
+
 
      $studentName = $message = $threadId= "";
 
-
-     $sql="SELECT chats.message, users.firstname, chats.userId, chats.threadId, users.id, users.role ";
-     $sql .= "FROM chats  ";
-     $sql .= "JOIN users ON chats.userId = users.id ";
-     $sql .= "WHERE users.role = 'Student'";
-     $sql .= "ORDER BY chats.messageId DESC ";
-  
+    
+     $sql = "SELECT firstname, id FROM users WHERE role = 'Student' ";
+    
 
      if($result = mysqli_query($link,$sql)){
 
@@ -21,38 +20,69 @@
                 while($row = mysqli_fetch_array($result)){
 
                     $studentName = $row['firstname'];
-                    $message = $row['message'];
                     $id = $row['id'];  
-                    $threadId = $row['threadId'];
 
+
+                            $sql1 = "SELECT message, threadId, chatUsername FROM chats WHERE threadId = ($id) ORDER BY messageId DESC LIMIT 1";
+
+                                if($result1 = mysqli_query($link,$sql1)){
+
+                                    if(mysqli_num_rows($result1) > 0){
+
+                                        while($row1 = mysqli_fetch_array($result1)){
+
+                                          $message = $row1['message'];
+                                          $threadId = $row1['threadId'];
+                                          $name=$row1['chatUsername'];
+                                          $ifCounselor = $_SESSION['firstname'];
+
+                                          if($ifCounselor == $name){
+                                            $chatName = "You";
+                                          }
+                                          
+                                          else{
+                                            $chatName = $name;
+                                          }
+
+                                              if(!empty($message)){
+
+                                              ?>
+                                             
+                                                    <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" >
+
+                                                      <div class='well well-lg'  >
+
+                                                        <span class='name'><?php echo $studentName ;?></span>                        
+                                                        <button type='button' name="read" class='btn btn-default btn-sm' onclick="window.location.href='chat.php?thread=<?php echo $threadId; ?>' " >
+                                                        <span class='glyphicon glyphicon-comment'></span> Read
+                                                        </button>
+                                    <!--  -->           
+                                                        </br>
+                                                        <?php echo $chatName ?>: <?php echo $message ?>  
+                                                            
+                                                        <?php
+
+                                            }/////////// empty message
+                                                
+
+                                        }///// 2nd while 
+                                        mysqli_free_result($result1);
+
+                                  }//// mysqli num rows 
+                            }//////////////////// mysqli query
+
+                        ?>
                 
-                ?>
-               
-                <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" >
-
-                  <div class='well well-lg'  >
-                        <span class='name'><?php echo $studentName ;?></span> 
-
-                        
-                         <button type='button' name="read" class='btn btn-default btn-sm' onclick="window.location.href='chat.php?thread=<?php echo $threadId; ?>' " >
-                         <span class='glyphicon glyphicon-comment'></span> Read
-                         </button>
-
-<!--  -->
-                        
-                        </br>
-                            <?php echo $message ?>  
-                    
-                     </div>
+                 </div>
                  </form>
 
                 <?php
 
-                }
+                } ///while
 
                 mysqli_free_result($result);
 
-            }
+            }//// num rows 
 
             else{
 
@@ -60,7 +90,7 @@
             }
 
                 mysqli_close($link);
-        }
+        }////query
     
 
 

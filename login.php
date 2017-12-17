@@ -3,7 +3,7 @@
 require_once 'config.php';
 
 // Define variables and initialize with empty values
-$username = $password = $firstname  = $lastname = $address = $email= $role= $id="";
+$username = $password = $firstname  = $lastname = $address = $email= $role= $id= $chatType = "";
 $username_err = $password_err = "";
 
 // Processing form data when form is submitted
@@ -59,6 +59,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION['email'] = $email;
                             $_SESSION['role'] = $role;
                             $_SESSION['id'] = $id;
+
 
                             header("location: index.php");
                         } 	else{

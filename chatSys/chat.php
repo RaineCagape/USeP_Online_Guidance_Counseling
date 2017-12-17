@@ -12,17 +12,20 @@
    	exit;
 	 }
 
-	 $role = $_SESSION['role']; 
-	
+	 $role = $_SESSION['role'];
+
 
 	 if($role == "Counselor"){       
 
-      $_SESSION['threadId'] = $_GET['thread']; 
+      $_SESSION['threadId'] = $_GET['thread'];  
 
-     }
+     } 
 
 
-     $userId= $message = $userName= $threadId="";
+ 		
+
+
+     $userId= $message = $userName= $threadId= "";
 	
 
     if(isset($_POST['send'])){
@@ -31,7 +34,7 @@
             $message = $_POST["message"];
         	$userName = $_SESSION['firstname'];
         	$threadId = $_SESSION['threadId'];
-      
+
 
 		    if(!empty($message)){
 
@@ -45,8 +48,7 @@
 		            $param_userId = $userId;
 		            $param_message = $message;
 		            $param_userName = $userName;
-		                    // $param_flag = $flag;
-		            // mysqli_stmt_execute($stmt);
+	
 
 		            if(mysqli_stmt_execute($stmt)){
 
@@ -69,11 +71,7 @@
 
 
     }
-
-
-     
-
-
+		 	
  		
 ?>
 
@@ -95,23 +93,10 @@
 	</script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-
-
+	
 	<script type="text/javascript">
 
-		function showModal(){
-
-		var role ="<?php echo $_SESSION['role']; ?>";
-			
-		if(role =="Student"){
-			
 		
-	        $('#myModal').modal('show');
-	    	
-		}
-		
-		}
-
 	    function updateChatAJAx(){
         var ajaxRequest;  // The variable that makes Ajax possible!
         ajaxRequest = new XMLHttpRequest();
@@ -202,22 +187,6 @@
 			</div>
 
 
-		<div id="myModal" class="modal fade" role="dialog" ">
-                    <div class="modal-dialog">
-    
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h1 class="modal-title">GO ANON!</h1>
-                            </div>
-        
-                            <div class="modal-body" style="font-size: 25px">
-                                We, in UGTO, respect your feelings and concerns. We are aware that you might feel this, you can turn on the "Anonimity Button" to hide your profile.<br><br><br>
-                                <button type="button" class="loginBtn" onclick="window.location.href='#'" style="width: 560px; margin-bottom: 5px">Turn on Anon</button><br>
-                                <button type="button" class="registerBtn" data-dismiss="modal" style="width: 560px"> No, thanks.</button>
-                            </div>
-                    </div>
-	</div>
 	
 </body>
 </html>

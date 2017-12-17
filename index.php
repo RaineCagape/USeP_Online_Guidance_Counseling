@@ -14,6 +14,7 @@
 	 $firstname = $_SESSION['firstname'];
 	 $role = $_SESSION['role'];
 
+
  		
 ?>
 
@@ -69,7 +70,6 @@
 			<div class="form-group">
 			
 			<label style="font-size: 22px">Welcome back, <b> <?php echo $firstname; ?></b> !</label>
-
 			<div class="list">
 				<br>
  			<span class="glyphicon glyphicon-user" style="font-size: 22px"></span><a href="Profile.php" style="font-size: 21px">  My Profile</a><br>
@@ -101,5 +101,7 @@
 			
 		</div>
 	</div>
+
+	
 </body>
 </html>

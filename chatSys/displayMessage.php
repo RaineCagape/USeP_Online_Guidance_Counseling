@@ -6,6 +6,7 @@
 	$userId = $_SESSION['id'];
 	$role = $_SESSION['role'];
 	$threadId = $_SESSION['threadId'];
+	// $chatType = $_SESSION['chatType'];
 	
 
 	
@@ -21,26 +22,28 @@
 
 					$idChat = $row['userId'];
 
-					
-						if($userId==$idChat){
 
-							echo "<div class='sendText'>You:</br>".$row['message']."</div><br>";
+					/////////////////////////////////			
+							if($userId==$idChat){
 
-						}
+								echo "<div class='sendText'>You:</br>".$row['message']."</div><br>";
 
-						else{
+							}
 
-							echo "<div class='recieveText'>".$row['chatUsername'].":</br>".$row['message']."</div><br>";
+							else{
 
-						}
+								echo "<div class='recieveText'>".$row['chatUsername'].":</br>".$row['message']."</div><br>";
+
+							}
 
 						
 						
-					}
+
+				}
 							
 							mysqli_free_result($result);
 
-						}
+			}
 
 
 		else{
@@ -48,7 +51,7 @@
 				echo "<label>Start Convo</label>";
 			}
                              					
-							 mysqli_close($link);
+					mysqli_close($link);
 		}
 
 ?>

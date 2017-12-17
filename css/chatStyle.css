@@ -32,3 +32,33 @@ body{
 
 }
 
+.recieveTextAnon{
+	border-radius: 5%;
+	background-color: #CCCCCC;
+	color: black;
+	margin-left: 650px;
+/*	margin-left: 50px;*/
+/*	float:right;*/
+	white-space: normal;
+	word-wrap: break-word;
+	
+	padding: 20px;
+/*	margin-bottom: 25px;*/
+	max-width: 385px;
+
+}
+
+.sendTextAnon{
+	border-radius: 5%;
+	background-color: #666666;
+	color: white;
+	white-space: normal;
+	word-wrap: break-word;
+	padding: 20px;
+/*	margin-bottom: 25px;*/
+	/*max-height: 100%;*/
+	max-width: 385px;
+
+
+}
+
