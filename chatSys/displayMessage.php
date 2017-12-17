@@ -9,9 +9,9 @@
 	// $chatType = $_SESSION['chatType'];
 	
 
-	
+	$idChat = $messageStat = $messageId = "";
 
-	$sql = "SELECT message,chatUsername,userId,chatType FROM chats WHERE threadId = ($threadId) ORDER BY messageId ASC";
+	$sql = "SELECT message,chatUsername,userId,chatType,status,messageId FROM chats WHERE threadId = ($threadId) ORDER BY messageId ASC";
 
 		
 		if($result = mysqli_query($link,$sql)){
@@ -23,7 +23,8 @@
 
 					$chatType = $row['chatType'];
 					$idChat = $row['userId'];
-					// $messageStat = $row['status'];
+					$messageStat = $row['status'];
+					$messageId = $row['messageId'];
 
 						if($chatType=="reg"){
 
@@ -56,13 +57,27 @@
 								echo "<div class='recieveTextAnon'>".$row['message']."</div><br>";
 
 							}
+
+
 							
 						}
+
+							if($role == 'Counselor'){		
+
+						$sql1 = " UPDATE chats SET status = 'read' WHERE threadId =($threadId)";
+
+								mysqli_query($link, $sql1);
+
+							}
 
 
 				}
 							
 							mysqli_free_result($result);
+
+							
+
+					
 
 			}
 
@@ -72,7 +87,8 @@
 				echo "<label>Start Convo</label>";
 			}
                              					
-							 mysqli_close($link);
+							 // mysqli_close($link);
 		}
+
 
 ?>
