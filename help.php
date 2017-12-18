@@ -30,8 +30,8 @@
 					<hr>
 					<hr>
 					<a href="index.php"> HOME </a> <br>
-					<a href=""> Featured Articles </a><br>
-					<a href=""> All Articles </a><br>	
+					<a href="featuredArticles.php"> Featured Articles </a><br>
+					<a href="allArticles.php"> All Articles </a><br>	
 					<br><br>
 					<br><br>
 					<br><br>

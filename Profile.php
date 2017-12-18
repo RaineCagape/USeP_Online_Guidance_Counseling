@@ -44,8 +44,8 @@
 					<hr>
 					<hr>
 					<a href="index.php"> HOME </a> <br>
-					<a href=""> Featured Articles </a><br>
-					<a href=""> All Articles </a><br>	
+					<a href="featuredArticles.php"> Featured Articles </a><br>
+					<a href="allArticles.php"> All Articles </a><br>	
 					<br><br>
 					<br><br>
 					<br><br>
@@ -59,7 +59,17 @@
 
 			<div class="col-sm-10">
 				<a href="logout.php" style="color: black; float: right; margin-right: 10px;">Logout</a><br>
-				<input type="button" value="Go to Chat Box" style="float: right; margin-top: 5px; height: 50px; border-radius: 10%">
+				
+				<?php
+					if($role == 'Counselor'){
+						echo "<a href = 'chatSys/Inbox.php'><input type='button' value='Go to Inbox' style='float: right; margin-top: 5px; height: 50px; border-radius: 10%'></a>";
+					}
+					if($role == 'Student'){
+						echo "<a href = 'chatSys/Inbox.php'><input type='button' value='Go to Chatbox' style='float: right; margin-top: 5px; height: 50px; border-radius: 10%'></a>";
+					}
+				?>
+
+
 				<div class="info">
 					<span class="glyphicon glyphicon-user" style="font-size: 200px"></span><br>
 					<label style="font-size: 30px"><!--ngalan--><?php echo $firstname;?> <?php echo $lastname; ?></label><br><br>

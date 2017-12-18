@@ -10,7 +10,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Contact Us</title>
+	<title>All Articles</title>
 	<link rel="icon" href="images/usep.png">
 	<link rel="icon" href="images/usep.png">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -43,19 +43,11 @@
 					<a href="contactUs.php"> Contact Page </a> <br>					
 				</div>
 				
-				<div class="col-sm-10">
-					<h1 class="contactTitle">
-						Contact Info:
-					</h1>
-					<h2 class="info">
-						University Guidance and Testing Office
-					</h2><br>
-					<h3 class="address">
-						University of Southeastern Phillipines<br> Inigo St. Bo. Obrero, Davao City 8000 
-					</h3><br>
-					<h4 class="number">
-						Telephone No: +6382-225-4696 / +6382-225-1105<br> E-mail Address: ugto@usep.edu.ph
-					</h4>
+				<div class="col-sm-10" style="overflow-y: scroll;">
+					<h1 style="text-align: center; font-family: Century Gothic">ALL ARTICLES</h1>
+					<?php
+					include 'article/displayPost.php'
+					?>
 				</div>
 			
 		</div>

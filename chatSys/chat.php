@@ -18,11 +18,12 @@
 	 if($role == "Counselor"){       
 
       $_SESSION['threadId'] = $_GET['thread']; 
-	 $_SESSION['chatType'] = $_GET['type'];
-     }   
+	 $_SESSION['chatType'] = $_GET['type']; 
+
+     }  
 
 
-     $userId= $message = $userName= $threadId= $chatType= $status ="";
+     $userId= $message = $userName= $threadId= $chatType="";
 	
 
     if(isset($_POST['send'])){
@@ -32,23 +33,21 @@
         	$userName = $_SESSION['firstname'];
         	$threadId = $_SESSION['threadId'];
         	$chatType =  $_SESSION['chatType'];
-        	$status = "new";
 
 
 		    if(!empty($message)){
 
-		        $sql = "INSERT INTO chats (threadId,userId,message,chatUsername,chatType,status) VALUES (?,?,?,?,?,?)";
+		        $sql = "INSERT INTO chats (threadId,userId,message,chatUsername,chatType) VALUES (?,?,?,?,?)";
 
 		        if ($stmt = mysqli_prepare($link,$sql)){
 
-		            mysqli_stmt_bind_param($stmt,"iissss",$param_threadId,$param_userId,$param_message,$param_userName,$param_chatType,$param_status);
+		            mysqli_stmt_bind_param($stmt,"iisss",$param_threadId,$param_userId,$param_message,$param_userName,$param_chatType);
 
 		            $param_threadId = $threadId;
 		            $param_userId = $userId;
 		            $param_message = $message;
 		            $param_userName = $userName;
 		            $param_chatType = $chatType;
-		            $param_status = $status;
 
 		            if(mysqli_stmt_execute($stmt)){
 
@@ -61,7 +60,7 @@
 		            else{
 		                ?>
 		                    <script type="text/javascript">
-		                    	alert('Error in Sending message');
+		                    	alert('Error in Sending message'.<?php echo mysql_errno()?>);
 		                    </script>
 		                <?php
 		            }

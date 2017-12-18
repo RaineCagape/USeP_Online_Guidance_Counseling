@@ -1,0 +1,26 @@
+textarea{
+	overflow: scroll;
+	resize: none;
+}
+.postStyle{
+	width: 900px;
+	height: 370px;
+}
+.article_title{
+	width: 815px;
+}
+.col-sm-9{
+	height: 555px;
+	overflow-y: scroll;
+}
+.col-sm-1{
+	background-color: #D0D0D0;
+}
+.button{
+	font-size: 20px;
+	height: 40px;
+	width: 80px;
+	color: black; 
+	margin-top: 10px;
+	margin-bottom: 10px;
+}

@@ -46,8 +46,8 @@
 					<hr>
 					<hr>
 					<a href="index.php"> HOME </a> <br>
-					<a href=""> Featured Articles </a><br>
-					<a href=""> All Articles </a><br>	
+					<a href="featuredArticles.php"> Featured Articles </a><br>
+					<a href="allArticles.php"> All Articles </a><br>	
 					<br><br>
 					<br><br>
 					<br><br>
@@ -60,7 +60,9 @@
 			</div>
 
 			<div class="col-sm-7">
-					<!--contenttssss-->
+				<?php
+			include 'article/displayPost.php'
+			?>
 			</div>
 
 			<div class="col-sm-3">
@@ -70,7 +72,7 @@
 			<div class="form-group">
 			
 			<label style="font-size: 22px">Welcome back, <b> <?php echo $firstname; ?></b> !</label>
-			<div class="list"><b>
+			<div class="list">
 				<br>
  			<span class="glyphicon glyphicon-user" style="font-size: 22px"></span><a href="Profile.php" style="font-size: 21px">  My Profile</a><br>
 
@@ -80,6 +82,8 @@
   				if($role=='Counselor'){
   					
   					echo "<br><span class='glyphicon glyphicon-plus' style='font-size: 22px'></span> <a href='register.php' style='font-size: 21px'> Add Account </a>";
+  					echo "<br><span class='glyphicon glyphicon-pencil' style='font-size: 22px'></span> <a href='article/post.php' style ='font-size: 21px;text-decoration: none'> Write Article</a>";
+
 
   				}
 
@@ -88,12 +92,16 @@
   			</div>
 
 
-			<button type="button" style="width: 270px; height: 40px; background-color: #36bfe9; color: white; margin-top: 70px; border-radius: 10%" onclick="window.location.href='logout.php'">Log Out</button>
+			<button type="button" style="width: 270px; height: 40px; background-color: #36bfe9; color: white; margin-top: 40px; border-radius: 10%" onclick="window.location.href='logout.php'">Log Out</button>
 			</div>
 
-			<div class="chat">
-					<button type="button" class="chatbutt" onclick="window.location.href='chatSys/Inbox.php'">Chat Now</button>
-			</div>	
+			<?php
+				if($role == 'Student'){
+					echo"<div class='chat'>
+					<a href='chatSys/chat.php'><button type='button' class='chatbutt'>Chat Now</button></a>
+			</div>";
+				}
+			?>
 
 			</div>
 			</div>

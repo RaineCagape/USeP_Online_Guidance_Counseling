@@ -2,6 +2,15 @@
 // Include config file
 require_once 'config.php';
 
+session_start();
+
+ if((!isset($_SESSION['username']) || empty($_SESSION['username'])) && $_SESSION['role'] != "Counselor"){
+
+     header("location: login.php");
+  
+    exit;
+     }
+
 // Define variables and initialize with empty values
 $username= $password= $fname= $lname= $address= $email= $role= $id="";
 $username_err = $password_err = $fname_err= $lname_err= $address_err= $email_err="";
@@ -104,17 +113,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
 
-                session_start();
-
-                $_SESSION['username'] = $username;
-                $_SESSION['firstname'] = $fname; 
-                $_SESSION['lastname'] = $lname;
-                $_SESSION['address'] = $address;
-                $_SESSION['email'] = $email;
-                $_SESSION['role'] = $role;
 
                 // Redirect to login page
-                header("location: login.php");
+                header("location: index.php");
             } else{
                 echo "Something went wrong. Please try again later.";
             }

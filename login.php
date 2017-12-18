@@ -85,7 +85,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 $_SESSION['chatType'] = $chatType;
 
                             }
-
                             header("location: index.php");
                         } 	else{
                             // Display an error message if password is not valid
@@ -106,7 +105,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     // Close connection
-    mysqli_close($link);
+    // mysqli_close($link);
 }
 ?>
 
@@ -143,8 +142,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					<hr>
 					<hr>
 					<a href="index.php"> HOME </a> <br>
-					<a href=""> Featured Articles </a><br>
-					<a href=""> All Articles </a><br>	
+					<a href="featuredArticles.php"> Featured Articles </a><br>
+					<a href="allArticles.php"> All Articles </a><br>	
 					<br><br>
 					<br><br>
 					<br><br>
@@ -157,7 +156,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			</div>
 
 			<div class="col-sm-7">
-					<!--contenttssss-->
+					<?php
+            include 'article/displayPost.php';
+            ?>
 			</div>
 
 			<div class="col-sm-3">
