@@ -15,7 +15,7 @@ username: mmell pass:michael123
 
 ================================
 NOTE:
-Making an account for counselors, Must update the data in database then change the role into 'Counselors'
+Making an account for counselors, Must update the data in database by changing the role into 'Counselors'
  
 
 
