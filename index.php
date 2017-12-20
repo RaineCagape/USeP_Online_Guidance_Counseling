@@ -71,7 +71,7 @@
 
 			<div class="form-group">
 			
-			<label style="font-size: 22px">Welcome back, <b> <?php echo $firstname; ?></b> !</label>
+			<label style="font-size: 22px">Welcome back, <b> <?php echo $firstname; ?></b>!</label>
 			<div class="list">
 				<br>
  			<span class="glyphicon glyphicon-user" style="font-size: 22px"></span><a href="Profile.php" style="font-size: 21px">  My Profile</a><br>
@@ -92,13 +92,13 @@
   			</div>
 
 
-			<button type="button" style="width: 270px; height: 40px; background-color: #36bfe9; color: white; margin-top: 40px; border-radius: 10%" onclick="window.location.href='logout.php'">Log Out</button>
+			<button type="button" style="width: 270px; height: 40px; background-color: #36bfe9; color: white; margin-top: 25px; border-radius: 10%" onclick="window.location.href='logout.php'">Log Out</button>
 			</div>
 
 			<?php
 				if($role == 'Student'){
 					echo"<div class='chat'>
-					<a href='chatSys/chat.php'><button type='button' class='chatbutt'>Chat Now</button></a>
+					<a href='chatSys/Inbox.php'><button type='button' class='chatbutt'>Chat Now</button></a>
 			</div>";
 				}
 			?>

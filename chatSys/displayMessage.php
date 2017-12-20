@@ -84,7 +84,7 @@
 
 		else{
 
-				echo "<label>Start Convo</label>";
+				echo "<label>What are you feeling today?</label>";
 			}
                              					
 							 // mysqli_close($link);

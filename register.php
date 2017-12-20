@@ -6,9 +6,9 @@ session_start();
 
  if((!isset($_SESSION['username']) || empty($_SESSION['username'])) && $_SESSION['role'] != "Counselor"){
 
-     header("location: login.php");
+     header("location: index.php");
   
-    exit;
+    
      }
 
 // Define variables and initialize with empty values
@@ -113,9 +113,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
 
+                ?>
+                <script type="text/javascript">
+                    alert('Account Created! ');
+                    window.location.href='index.php'; 
+                </script>
+                <?php
+
 
                 // Redirect to login page
-                header("location: index.php");
+               
             } else{
                 echo "Something went wrong. Please try again later.";
             }
@@ -236,7 +243,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
                             <div class="modal-body">
                                 All changes you've made won't be saved. Are you sure you want to leave?<br><br><br><br><br>
-                                <button type="button" class="loginBtn" onclick="window.location.href='login.php'">Yes, I would like to leave</button><br><br>
+                                <button type="button" class="loginBtn" onclick="window.location.href='index.php'">Yes, I would like to leave</button><br><br>
                                 <button type="button" class="registerBtn" data-dismiss="modal" > No, continue</button>
                             </div>
                     </div>

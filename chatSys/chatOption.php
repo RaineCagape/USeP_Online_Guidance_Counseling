@@ -18,7 +18,7 @@
 
      if($role == "Student"){
 
-        $_SESSION['threadId'] = $studId;
+        // $_SESSION['threadId'] = $studId;
         
         
 
@@ -152,8 +152,8 @@
         
                             <div class="modal-body" style="font-size: 25px">
                                 We, in UGTO, respect your feelings and concerns. We are aware that you might feel this, you can turn on the "Anonimity Button" to hide your profile.<br><br><br>
-                                <button type="button" class="loginBtn" onclick="window.location.href='chat.php?type=anon'" style="width: 560px; margin-bottom: 5px">Turn on Anon</button><br>
-                                <button type="button" class="registerBtn"  onclick="window.location.href='chat.php?type=reg'" style="width: 560px"> No, thanks.</button>
+                                <button type="button" class="loginBtn" onclick="window.location.href='setType.php?type=anon'" style="width: 560px; margin-bottom: 5px">Turn on Anon</button><br>
+                                <button type="button" class="registerBtn"  onclick="window.location.href='setType.php?type=reg'" style="width: 560px"> No, thanks.</button>
                             </div>
                     </div>
     </div>

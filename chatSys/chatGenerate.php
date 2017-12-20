@@ -147,7 +147,7 @@
 
             else{
 
-                echo "<p style='text-align: center; font-weight:bold;'>No Messages Yet</p>";
+                echo "<p style='text-align: center; font-weight:bold;'>No Message/s Yet</p>";
             }
 
                 mysqli_close($link);
